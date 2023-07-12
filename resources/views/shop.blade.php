@@ -66,17 +66,84 @@
    <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
    <p style="color:#666; font-size:20px;"> Reserve Price : <span style="color:purple; font-size:20px;">Ksh. {{$products->reserve_price}}</span> </p>
    <p style="color:#666; font-size:20px;"> Time Left : <span style="color:purple; font-size:20px;">{{$products->start_date}}</span> </p>
-   
-   <form action="" method="post" >
-      @csrf
-      <input type="hidden" name="name" placeholder="enter your name" value=""  >
-      <input type="hidden" name="email" placeholder="enter your email" value=""  >
-      <input type="hidden" name="type" placeholder="enter your email" value=""  >
-      <input type="number" class="box" name="type" placeholder="enter your bidding price" value="" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;
-      padding:20px 40px;" >
-      <br></br>
-      <a href="" style="text-decoration: none; background-color:#98777b;" class="delete-btn">Bid</a>
-   </form>
+
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+
+<script src="{{ asset('path/to/web3.min.js') }}"></script> <!-- Adjust the path to your web3.min.js file -->
+
+<script>
+  // Connect to the Ethereum network using Web3.js
+  const web3 = new Web3(Web3.givenProvider);
+
+  // Get the user's Ethereum account address
+  async function getAccount() {
+    const accounts = await web3.eth.requestAccounts();
+    return accounts[0];
+  }
+
+  // Get the contract instance
+  const contractAddress = 'CONTRACT_ADDRESS'; // Replace with your contract address
+  const contractAbi = CONTRACT_ABI; // Replace with your contract ABI
+  const contract = new web3.eth.Contract(contractAbi, contractAddress);
+
+  // Function to handle the "Place Bid" button click event
+  async function placeBid() {
+    const account = await getAccount();
+
+    const bidValue = web3.utils.toWei('BID_AMOUNT_ETHER', 'ether'); // Replace BID_AMOUNT_ETHER with the actual bid amount in Ether
+
+    // Send the bid transaction
+    contract.methods.bid().send({ from: account, value: bidValue })
+      .on('transactionHash', function (hash) {
+        console.log('Bid transaction sent:', hash);
+      })
+      .on('receipt', function (receipt) {
+        console.log('Bid transaction confirmed:', receipt);
+        // Handle success or display a confirmation message
+
+        // Update the bid history
+        updateBidHistory();
+      })
+      .on('error', function (error) {
+        console.error('Error occurred during bid:', error);
+        // Handle error or display an error message
+      });
+  }
+
+  // Function to retrieve and display the bid history
+  async function updateBidHistory() {
+    const bidHistoryElement = document.getElementById('bid-history');
+
+    const bidderCount = await contract.methods.getBidderCount().call();
+    const bidHistory = [];
+
+    for (let i = 0; i < bidderCount; i++) {
+      const bidderAddress = await contract.methods.getBidderAddress(i).call();
+      const bidTime = await contract.methods.getBidTime(bidderAddress).call();
+      bidHistory.push({ bidder: bidderAddress, time: bidTime });
+    }
+
+    // Update the HTML with the bid history
+    let html = '<ul>';
+    for (const bid of bidHistory) {
+      html += `<li>Bidder: ${bid.bidder}<br>Time: ${new Date(bid.time * 1000)}</li>`;
+    }
+    html += '</ul>';
+
+    bidHistoryElement.innerHTML = html;
+  }
+</script>
+
+<!-- Add the "Place Bid" button -->
+<button onclick="placeBid()">Place Bid</button>
+
+<!-- Add a section to display the bid history -->
+<div id="bid-history"></div>
+
+
+
+
 
    <form action="{{route('shop')}}" method="post" enctype="multipart/form-data">
       @csrf
