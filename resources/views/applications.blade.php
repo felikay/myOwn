@@ -119,7 +119,7 @@
             @endif
          </div>
       </div>
-      <input type="button" value="Continue later?" class="option-btn" name="pause">
+     
       
 </fieldset>
 
@@ -153,7 +153,7 @@
          </div>
         </div> 
 
-      <input type="button" value="Continue later?" class="option-btn" name="pause">
+      
 
       </fieldset>
 
@@ -196,7 +196,7 @@
          </div>
          
       </div>
-      <input type="button" value="Continue later?" class="option-btn" name="pause">
+      <a href="{{ route('bidderHome') }}" class="option-btn" style="background-color:black; text-decoration:none;" name="pause">Back</a>
       <input type="submit" value="apply" style="margin-left: 70%; background-color:green; " class="white-btn" name="submit">
       
 </fieldset>

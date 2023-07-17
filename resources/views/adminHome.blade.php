@@ -26,25 +26,49 @@
    <h1 class="title">dashboard</h1>
 
    <div class="box-container">
-   
-      <div class="box" >
 
+
+   <div class="box">
+      <h2 style="color: red;">[--{{$newproducts}}--]</h2>
+         <p> <a href="{{ route('admin.newproducts') }}" style="text-decoration: none; color:black;">New Products</a> </p>
+      </div>
+   
+
+      <div class="box">
+      <h2 style="color: red;">[--{{$newapplications}}--]</h2>
+         <p> <a href="{{ route('display.unapprovedapplications') }}" style="text-decoration: none; color:black;">New Applications</a> </p>
+      </div>
+
+      <div class="box1" >
+      </div>
+
+      <div class="box1" >
+      </div>
+
+
+      <div class="box" >
         
          <h2>{{$totalbidders}}</h2>
-         <p> <a href="{{ route('display.bidders') }}" style="text-decoration: none; color:purple;">bidder accounts</a> </p>
+         <p> <a href="{{ route('display.bidders') }}" style="text-decoration: none; color:black;">bidder accounts</a> </p>
       </div>
      
 
       <div class="box">
         
          <h2>{{$totaladmins}}</h2>
-         <p> <a href="{{ route('display.admins') }}" style="text-decoration: none; color:purple;">Admin accounts</a> </p>
+         <p> <a href="{{ route('display.admins') }}" style="text-decoration: none; color:black;">Admin accounts</a> </p>
       </div>
 
       <div class="box">
          
          <h2>{{$totalsellers}}</h2>
-         <p> <a href="{{ route('display.sellers') }}" style="text-decoration: none; color:purple;">Sellers accounts</a> </p>
+         <p> <a href="{{ route('display.sellers') }}" style="text-decoration: none; color:black;">Sellers accounts</a> </p>
+      </div>
+
+      <div class="box">
+         
+         <h2>{{$blocked}}</h2>
+         <p> <a href="{{ route('display.blocked') }}" style="text-decoration: none; color:black;">Blocked accounts</a> </p>
       </div>
 
       
@@ -52,34 +76,27 @@
       <div class="box">
          
          <h2>{{$totalaccounts}}</h2>
-         <p> <a href="{{ route('display.accounts') }}" style="text-decoration: none; color:purple;">Total accounts</a> </p>
+         <p> <a href="{{ route('display.accounts') }}" style="text-decoration: none; color:black;">Total accounts</a> </p>
       </div>
 
       <div class="box">
       <h2>{{$applications}}</h2>
-         <p> <a href="{{ route('display.applications') }}" style="text-decoration: none; color:purple;">Applications</a> </p>
+         <p> <a href="{{ route('display.applications') }}" style="text-decoration: none; color:black;">Applications</a> </p>
       </div>
 
       <div class="box">
       <h2>{{$deactivated}}</h2>
-         <p> <a href="{{ route('display.deactivated') }}" style="text-decoration: none; color:purple;">Deactivated Accounts</a> </p>
+         <p> <a href="{{ route('display.deactivated') }}" style="text-decoration: none; color:black;">Deactivated Accounts</a> </p>
       </div>
 
-      <div class="box">
-      <h2 style="color: red;">[{{$newapplications}}]</h2>
-         <p> <a href="{{ route('display.unapprovedapplications') }}" style="text-decoration: none; color:purple;">New Applications</a> </p>
-      </div>
-
+      
       <div class="box" >
 
          <h2>{{$totalproducts}}</h2>
-         <p> <a href="{{ route('admin.viewproducts') }}" style="text-decoration: none; color:purple;">Total Products</a> </p>
+         <p> <a href="{{ route('admin.viewproducts') }}" style="text-decoration: none; color:black;">Total Products</a> </p>
       </div>
 
-      <div class="box">
-      <h2 style="color: red;">[{{$newproducts}}]</h2>
-         <p> <a href="{{ route('admin.newproducts') }}" style="text-decoration: none; color:purple;">New Products</a> </p>
-      </div>
+     
 
       
    </div>

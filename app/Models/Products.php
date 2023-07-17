@@ -13,10 +13,10 @@ class Products extends Model
     protected $fillable = [
         'name',
         'email',
-        'reserve_price',
+        'description',
         'image',
         'status',
-        'posted',
+        
         
     ];
 

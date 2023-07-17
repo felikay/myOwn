@@ -60,8 +60,8 @@
    <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
    <p style="color:#666; font-size:20px;"> Email : <span style="color:purple; font-size:20px;">{{$products->email}}</span> </p>
    <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Price : <span style="color:purple; font-size:20px;">ETH. {{$products->reserve_price}}</span> </p>
-
+   <p style="color:#666; font-size:20px;"> Description : <span style="color:purple; font-size:20px;">{{$products->description}}</span> </p>
+   
    <a href="{{route('product.status', ['user_id' => $products->id, 'status_code' => 'Accepted']) }}" style="text-decoration: none; background-color:#47d247;" class="option-btn" >Accept</i></a>
    <a href="{{route('product.status', ['user_id' => $products->id, 'status_code' => 'Denied']) }}" style="text-decoration: none; background-color:#98777b;" class="delete-btn" >Block</i></a>
    

@@ -47,10 +47,10 @@
 
      
       <div class="box">
-      <input type="number" name="reserve_price" placeholder="enter the product reserve price" style="width:82%;"  size="35%" value="{{old('price')}}">
+      <input type="text" name="description" placeholder="enter the product description" style="width:82%;"  size="35%" value="{{old('description')}}">
       </div>
-      @if($errors->has('reserve_price'))
-      <span class="text-danger">{{$errors->first('reserve_price')}}</span>
+      @if($errors->has('description'))
+      <span class="text-danger">{{$errors->first('description')}}</span>
       @endif
 
           

@@ -7,6 +7,8 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\AddusersController;
 use App\Http\Controllers\sellerController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\BidController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\API\SocialAuthController;
 use App\Http\Controllers\API\AuctionController;
@@ -95,6 +97,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/products/posted/{user_id}/{status_code}',[sellerController::class, 'productPosted'])->name('product.posted');;
 });
 
+Route::middleware('auth')->group(function () {
+Route::get('/expire/status/{user_id}/{status_code}',[sellerController::class, 'expire'])->name('expire.status');;
+});
+
 
 
 /*------------------------------------------
@@ -125,7 +131,7 @@ Navigations
 
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/contacts', [App\Http\Controllers\BidderController::class, 'contacts'])->name('contacts');
+Route::get('/contacts', [App\Http\Controllers\HomeController::class, 'contacts'])->name('contacts');
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
@@ -133,7 +139,7 @@ Route::get('/orders', [App\Http\Controllers\HomeController::class, 'orders'])->n
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/about', [App\Http\Controllers\BidderController::class, 'about'])->name('about');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
@@ -211,6 +217,12 @@ Route::get('/cart', [App\Http\Controllers\HomeController::class, 'cart'])->name(
 Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
 });
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/bidder/wonbids', [App\Http\Controllers\HomeController::class, 'bidderWonbids'])->name('bidder.wonbids');
+});
+
+Route::post('/bid/{product_id}', [BidController::class, 'store']);
     
 Route::group(['middleware'=>'disable_back'],function(){
 Route::post('/shop', [App\Http\Controllers\BidderController::class, 'shop'])->name('shop');
@@ -218,6 +230,14 @@ Route::post('/shop', [App\Http\Controllers\BidderController::class, 'shop'])->na
 
 Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/cartlist', [App\Http\Controllers\HomeController::class, 'cartlist'])->name('cartlist');
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkout');
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::post('/checkout', [App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkoutpost');
 });
 
 /*------------------------------------------
@@ -315,9 +335,7 @@ All display product
 --------------------------------------------
 --------------------------------------------*/
 
-Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/seller/approvedproducts', [App\Http\Controllers\sellerController::class, 'sellerApprovedproducts'])->name('seller.approvedproducts');
-});
+
 
 Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/seller/unapprovedproducts', [App\Http\Controllers\sellerController::class, 'sellerUnapprovedproducts'])->name('seller.unapprovedproducts');
@@ -353,7 +371,19 @@ Route::put('seller/editproducts/{id}', [App\Http\Controllers\sellerController::c
 
 Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/sold/products', [App\Http\Controllers\sellerController::class, 'soldProducts'])->name('sold.products');
-    });
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/seller/restartauction/{product_id}', [App\Http\Controllers\sellerController::class, 'sellerRestartAuction'])->name('seller.restartauction');
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::put('/seller/restartauction/{product_id}', [App\Http\Controllers\sellerController::class, 'sellerRestart'])->name('seller.restart');
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/seller/notifybidder', [App\Http\Controllers\sellerController::class, 'sellerNotifybidder'])->name('seller.notifybidder');
+});
 
 
 
@@ -367,6 +397,7 @@ Delete Buttons
 
 Route::get('delete_products/{id}', 'App\Http\Controllers\sellerController@delete_products');
 Route::get('delete_products/{id}', 'App\Http\Controllers\adminController@delete_products');
+Route::get('delete_posted/{product_id}', 'App\Http\Controllers\sellerController@delete_posted');
     
     
 
@@ -374,3 +405,28 @@ Route::get('delete_products/{id}', 'App\Http\Controllers\adminController@delete_
 
 
 Route::get('createAuction', [App\Http\Controllers\AuctionController::class, 'store'])->name('create.Auction');
+
+
+
+
+/*------------------------------------------
+--------------------------------------------
+Bidding Process
+--------------------------------------------
+--------------------------------------------*/
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/seller/approvedproducts', [App\Http\Controllers\sellerController::class, 'sellerApprovedproducts'])->name('seller.approvedproducts');
+});
+
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::post('/seller/approvedproducts', [App\Http\Controllers\BidController::class, 'sellerApprovedproducts'])->name('seller.approvedproducts');
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/seller/endedauction', [App\Http\Controllers\sellerController::class, 'sellerEndedauction'])->name('seller.endedauction');
+});
+
+
+

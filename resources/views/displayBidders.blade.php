@@ -13,6 +13,29 @@
    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
    <link rel="stylesheet" href="{{asset('css/delete.css')}}">
 
+   <style>
+      .modal-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      z-index: 9999; /* Make sure it appears on top of other elements */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .modal-body {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 400px;
+      width: 100%;
+   }
+   </style>
+
 </head>
 <body>
 
@@ -42,10 +65,9 @@
    <p> Email : <span>{{$bidders->email}}</span> </p>
    <p> Type : <span>{{ $bidders->type }}</span> </p>
   
-  <a href="{{route('status.update', ['user_id' => $bidders->id, 'status_code' => 0]) }}" style="text-decoration: none; background-color:#98777b;" class="delete-btn">Block</a>
+  
 
-
-  <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a> 
+  <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Block</a> 
 <!-- Modal -->
 <div class="modal-wrapper" id="modal">
 	<div class="modal-body card">
@@ -58,12 +80,16 @@
 				</svg>&nbsp;&nbsp;
 			</a>
 		</div>
+   <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Name : <span>{{$bidders->name}}</span> </p>
+   <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Email : <span>{{$bidders->email}}</span> </p>
+   <p style=" padding-left:60px;text-align:left; font-size:20px; color:red;"> Type : <span>{{ $bidders->type }}</span> </p>
       
    <p style="text-align:center; font-size:20px; color:purple;">Arge Auction Shop</p>
 
-		<p style="text-align:center; font-size:20px;">Are You sure you want to delete ? </p>
+		<p style="text-align:center; font-size:20px;">Are You sure you want to block this account ? </p>
 
-      <button><a href="{{url('delete_bidders/' . $bidders->id) }}" style="text-decoration: none;" class="delete-btn">Delete</a></button>
+      <button><a href="{{route('status.update', ['user_id' => $bidders->id, 'status_code' => 0]) }}" style="text-decoration: none; background-color:#5752a1;" class="delete-btn">Block</a>
+</button>
 
       <br></br>
    </div>
@@ -76,7 +102,7 @@
 @endforeach
 </div>
 @else
-<p style="color:red; font-size:30px;"> <span>There are no registered Bidders Accounts</span> </p>
+<p style="color:red; font-size:30px;"> <span></span> </p>
 @endif
 
 </section>

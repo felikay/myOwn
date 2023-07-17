@@ -61,7 +61,7 @@
    <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
    <p style="color:#666; font-size:20px;"> Email : <span style="color:purple; font-size:20px;">{{$products->email}}</span> </p>
    <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Price : <span style="color:purple; font-size:20px;">ETH. {{$products->reserve_price}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Price : <span style="color:purple; font-size:20px;">Ksh. {{$products->reserve_price}}</span> </p>
 
   
    <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a>

@@ -32,7 +32,7 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -44,7 +44,7 @@
 /* Links inside the dropdown */
 .dropdown-content1 a {
   color: black;
-  padding: 12px 16px;
+  padding: 12px 25px;
   text-decoration: none;
   display: block;
   text-decoration: none;
@@ -99,8 +99,9 @@
             <div class="dropdown1">
             <button class="dropbtn1">Sales</button>
             <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{route('add.products')}}">New Art</a>
-            <a style="text-decoration: none;" href="{{ route('seller.unapprovedproducts') }}">Unapproved</a>
+            <a style="text-decoration: none;" href="{{route('add.products')}}">New Art piece</a>
+            <a style="text-decoration: none;" href="{{ route('seller.unapprovedproducts') }}">Waiting List</a>
+            <a style="text-decoration: none;" href="{{ route('seller.blockedproducts') }}">Rejected </a>
                    
            
             </div>
@@ -110,10 +111,12 @@
             <div class="dropdown1">
             <button class="dropbtn1">My Arts</button>
             <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{route('seller.approvedproducts')}}">Approved</a>
-            <a style="text-decoration: none;" href="{{route('seller.postedproducts')}}">Posted</a>
+            <a style="text-decoration: none;" href="{{route('seller.approvedproducts')}}">Approved Arts</a>
+            <a style="text-decoration: none;" href="{{route('seller.postedproducts')}}">On sale</a>
+            <a style="text-decoration: none;" href="{{route('seller.endedauction')}}">Expired Auctions</a>
+            <a style="text-decoration: none;" href="{{route('seller.notifybidder')}}">Pending Sales</a>
             <a style="text-decoration: none;" href="{{ route('sold.products') }}">Sold Arts</a>
-            <a style="text-decoration: none;" href="{{ route('seller.blockedproducts') }}">Blocked </a>
+            
            
             </div>
             </div>

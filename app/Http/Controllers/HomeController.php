@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Application;
 use App\Models\Products;
+use App\Models\Posted;
+use App\Models\Bid;
 use App\Models\Cart;
+use Carbon\Carbon;
 use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -29,10 +33,25 @@ class HomeController extends Controller
      * 
      */
 
+     public function contacts()
+     {
+       $userId = Auth::user()->email;
+       $list = Cart::where ('email',  $userId)->count();
+       return view('contacts',compact('list'));
+     }
+
+
+     public function about()
+     {
+       $userId = Auth::user()->email;
+       $list = Cart::where ('email',  $userId)->count();
+       return view('about',compact('list'));
+     }
+
      public function bidderHome()
      {
         $userId = Auth::user()->email;
-        $list = Cart::where ('email',  $userId)->count();
+        $list = Cart::where ('email',  $userId)->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->count();
         $nolist = '';
         return view('bidderHome',compact('list','nolist'));
 
@@ -55,8 +74,9 @@ class HomeController extends Controller
         $approvedproducts = Products::where('blocked', 'Accepted')->where ('email',  $userId)->count();
         $blockedproducts = Products::where('blocked', 'Denied')->where ('email',  $userId)->count();
         $soldproducts = Products::where('status', '1')->where ('email',  $userId)->count();
-        $postedproducts = Products::where ( 'status', 0 )->where ('email',  $userId)->where ( 'posted', 'Posted' )->where('blocked', 'Accepted')->count();
-        return view('sellerHome', compact('totalproducts','unapprovedproducts','approvedproducts','blockedproducts','soldproducts','postedproducts'));
+        $postedproducts = Posted::where('seller_email',  $userId)->count();
+        $expired = Posted::where('end_time', '<=', Carbon::now()->timezone('Africa/Nairobi'))->where('seller_email',  $userId)->count();
+        return view('sellerHome', compact('expired','totalproducts','unapprovedproducts','approvedproducts','blockedproducts','soldproducts','postedproducts'));
     }
 
     public function adminHome()
@@ -65,12 +85,14 @@ class HomeController extends Controller
         $totalsellers = User::where ('type','2')->count();
         $totaladmins = User::where ('type','1')->count();
         $totalaccounts = User::count();
+        $blocked = User::where ('status','0')->count();
+
         $applications = Application::count();
         $newapplications = Application::where('status', 'No Reviews')->count();
         $newproducts = Products::where('blocked', 'No Reviews')->count();
         $deactivated = User::whereNull ( 'password')->count();
         $totalproducts = Products::count();
-        return view('adminHome',compact('totalbidders','totalsellers','totaladmins', 'totalaccounts','applications','deactivated','newapplications','totalproducts','newproducts'));
+        return view('adminHome',compact('blocked','totalbidders','totalsellers','totaladmins', 'totalaccounts','applications','deactivated','newapplications','totalproducts','newproducts'));
       
     }
 
@@ -90,18 +112,15 @@ class HomeController extends Controller
      {
 
         $userId = Auth::user()->email;
-        $data = Cart::where ('email',  $userId)->get();
-        $list = Cart::where ('email',  $userId)->count();
+        $data = DB::table('carts')
+    ->where('email', $userId)
+    ->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))
+    ->get();
+        $list = Cart::where ('email',  $userId)->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->count();
         return view('cart', compact('data','list'));
      }
 
-     public function wonBidsbidders()
-     {
-         return view('wonBidsbidders');
-     }
-
-
-    
+       
      
 
    
@@ -117,21 +136,34 @@ class HomeController extends Controller
     public function orders()
     {
       $userId = Auth::user()->email;
-      $list = Cart::where ('email',  $userId)->count();
+      $list = Cart::where ('email',  $userId)->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->count();
         return view('orders',compact('list'));
     }
 
     public function shop()
     {
 
-      
+      $data = Posted::where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->get();
       $userId = Auth::user()->email;
-      $list = Cart::where ('email',  $userId)->count();
-      $data = Products::where ( 'status', 0 )->where ( 'blocked','Accepted')->where ( 'posted', 'Posted' )->get();
-
+      $list = Cart::where ('email',  $userId)->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->count();
+      $data = DB::table('posteds')
+    ->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))
+    ->get();
       return view('shop',compact('data','list'));
     }
 
+
+    public function bidderWonbids()
+{
+    $userId = Auth::user()->email;
+    $list = Cart::where ('email',  $userId)->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->count();
+    $won = Bid::where('bidder_email', $userId)
+        ->where('notify', 'Can Buy')
+        ->with(['posted'])
+        ->get();
+
+    return view('bidderWonbids', compact('won','list'));
+}
     
 
 }

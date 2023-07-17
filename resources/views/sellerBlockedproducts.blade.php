@@ -63,7 +63,7 @@
    <img height= "500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
    <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
    <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Reserved Price : <span style="color:purple; font-size:20px;">ETH. {{$products->reserve_price}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Reserved Price : <span style="color:purple; font-size:20px;">Ksh. {{$products->reserve_price}}</span> </p>
    <p style="color:#666; font-size:20px;"> Status : <span style="color:purple; font-size:20px;">{{$products->blocked}}</span> </p>
   
 

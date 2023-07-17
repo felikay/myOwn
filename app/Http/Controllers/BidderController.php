@@ -22,19 +22,9 @@ class BidderController extends Controller
         return view('welcome');
     }
        
-    public function about()
-    {
-      $userId = Auth::user()->email;
-      $list = Cart::where ('email',  $userId)->count();
-      return view('about',compact('list'));
-    }
+   
 
-    public function contacts()
-    {
-        $userId = Auth::user()->email;
-        $list = Cart::where ('email',  $userId)->count();
-        return view('contacts',compact('list'));
-    }
+    
 
     public function applications()
     {
@@ -47,10 +37,12 @@ class BidderController extends Controller
     public function shop(Request $request){
 
             $data = new Cart();
-            $data->name = $request->input('name');
+            $data->product_name = $request->input('product_name');
+            $data->description = $request->input('description');
             $data->reserve_price = $request->input('reserve_price');
-            $data->start_date =$request->input('start_date');
-            $data->end_date = $request->input('end_date');
+            $data->available_units = $request->input('available_units');
+            $data->start_time =$request->input('start_time');
+            $data->end_time = $request->input('end_time');
             $data->email = $request->input('email');
             $data->image = $request->input('image');
             $data->save();

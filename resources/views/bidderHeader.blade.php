@@ -43,7 +43,7 @@
             <a href="#" class="fab fa-instagram" style="text-decoration: none;"></a>
             <a href="#" class="fab fa-linkedin" style="text-decoration: none;"></a>
          </div>
-         <p> new <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a> | <a href="{{ route('applications') }}" style="text-decoration: none;">Apply as vendor</a>   </p>
+         <p> Arge <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a> | <a href="{{ route('applications') }}" style="text-decoration: none;">Apply as vendor</a>   </p>
       </div>
    </div>
 
@@ -55,14 +55,14 @@
             <a style="text-decoration: none;" href="{{ route('bidderHome') }}">home</a>
             <a style="text-decoration: none;" href="{{ route('about') }}">about</a>
             <a style="text-decoration: none;" href="{{ route('shop') }}">shop</a>
-            <a style="text-decoration: none;" href="{{ route('contacts') }}">Won Bids</a>
+            <a style="text-decoration: none;" href="{{ route('bidder.wonbids') }}">Won Bids</a>
             <a style="text-decoration: none;" href="{{ route('orders') }}">orders</a>
          </nav>
 
          <div class="icons">
             
             
-            <a href="{{ route('cart') }}" style="text-decoration: none;"> <i class="fas fa-shopping-cart"></i> <span style="color:green;">[-- {{$list}} --]</span> </a>
+            <a href="{{ route('cart') }}" style="text-decoration: none;"> <i class="fas fa-shopping-cart"></i> <span style="color:#032027;">[-- {{$list}} --]</span> </a>
          </div>
 
          @guest
@@ -80,14 +80,14 @@
 
                         @else
                             <li class="nav-item dropdown" >
-                                <a style="font-size: 20px; width:100px; decoration: none; color:purple" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a style="font-size: 20px; width:100px; decoration: none; color:black;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <br>
-                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple" href="{{ route('password.update') }}">Reset Password</a>
-                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple"  id="open">Logout</a>
+                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:black;" href="{{ route('password.update') }}">Reset Password</a>
+                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:black;"  id="open">Logout</a>
                                 
                                 
                                 </div>
@@ -109,7 +109,7 @@
     <div class="model-container">
       <div class="model">
                 
-        <p STYLE="color:purple; text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:20px;">ARGE AUCTION SHOP</p>
+        <p STYLE="color:black; text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:20px;">ARGE AUCTION SHOP</p>
                       
         <p STYLE=" text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:15px;">Do you want to logout?</p>
         
@@ -120,7 +120,7 @@
         <button STYLE="display:inline; float:left; " type="submit" href="{{ route('logout') }}" >Yes</button>
         </form>
        
-        <button STYLE="display:block; float:right; background-color:purple;  " id="close_up"  >No</button>
+        <button STYLE="display:block; float:right; background-color:#721c08;  " id="close_up"  >No</button>
         <div>
         <i class="fa fa-times" id="close"></i>
       </div> 

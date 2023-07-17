@@ -61,11 +61,11 @@
   
    <div id="first">
    <img height= "500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
-   <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Reserved Price : <span style="color:purple; font-size:20px;">{{$products->reserve_price}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Status : <span style="color:purple; font-size:20px;">{{$products->blocked}}</span></p>
-   <p style="color:#666; font-size:20px;"> Created At : <span style="color:purple; font-size:20px;">{{$products->created_at}}</span></p>
+   <p style="color:#666; font-size:20px; text-align:left;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
+   <p style="color:#666; font-size:20px; text-align:left;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
+   <p style="color:#666; font-size:20px; text-align:left; width:698px;"> Description : <span style="color:purple; font-size:20px;">{{$products->description}}</span> </p>
+   <p style="color:#666; font-size:20px;text-align:left; "> Status : <span style="color:purple; font-size:20px;">{{$products->blocked}}</span></p>
+   <p style="color:#666; font-size:20px; text-align:left;"> Created At : <span style="color:purple; font-size:20px;">{{$products->created_at}}</span></p>
    <a href="{{url('seller/editproducts/' . $products->id) }}" style="text-decoration: none;" class="option-btn">Update</a>
 
 

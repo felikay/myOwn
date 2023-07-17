@@ -47,7 +47,7 @@
        @if(Session::has('fail'))
        <div class="alert-danger">{{Session::get('fail')}}</div>
        @endif
-       <h3 style="text-align:center; font-size:50px;">Art Pieces Yet to be posted for sale</h3>
+       <h3 style="text-align:center; font-size:50px;">Art Pieces available for sale</h3>
 @if($data->count() > 0)
    
    
@@ -59,39 +59,56 @@
   
    <div id="first">
    <img height= "500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
-   <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Reserved Price : <span style="color:purple; font-size:20px;">{{$products->reserve_price}}</span> </p>
+   <p style="color:#666; font-size:20px; text-align:left;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
+   <p style="color:#666; font-size:20px; text-align:left;"> Art Piece : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
+   <p style="color:#666; font-size:20px; text-align:left;"> Description : <span style="color:purple; font-size:20px;">[--{{$products->description}}--]</span> </p>
 
-
-   <!-- Bid form  -->
-   <div>
-
-   <input type="number" class="box" name="" min="{{Carbon\Carbon::now()->format('d-m-Y H:i:s')}}" placeholder="Enter Bidding Start Time" value="" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
-   <button class="option-btn" style="background-color:#4D4855;">Start Time</button>
-   <br></br>
-   <input type="number" class="box" name="" min="{{Carbon\Carbon::now()->format('d-m-Y H:i:s')}}" placeholder="Enter Bidding End Time" value="" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
-   <button class="option-btn" style="background-color:#4D4855;">End Time</button>
-   <br></br>
-   <input type="number" class="box" name="" placeholder="Highest Bidder Address" value="" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
-   <button class="option-btn" style="background-color:#ffa500;">Address</button>
-   <br></br>
-   <input type="number" class="box" name="" placeholder="Highet Bid Amount" value="" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
-   <button class="option-btn" style="background-color:#ffa500;">Amount</button>
-   <br></br>
-  
-   </div>
-
-
-
-   <button class="option-btn" style="background-color:#98777b;">End Auction</button>
-   <a href="{{route('product.posted', ['user_id' => $products->id, 'status_code' => 'Posted']) }}" style="text-decoration: none; background-color:#ff4500;" class="delete-btn" >post</i></a>
-   <a href="{{route('product.sold', ['user_id' => $products->id, 'status_code' => '1']) }}" style="text-decoration: none; background-color:blue;" class="delete-btn" >Sold</i></a>
+   <!-- seller sets the bidding  -->
    
-   
-   
-   <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a>
+   <form action="{{route('seller.approvedproducts')}}" method="post" enctype="multipart/form-data">
+   @csrf
+   <input type="hidden" class="box" name="product_id"  value="{{$products->id}}"  >
+   <input type="hidden" class="box" name="product_name"  value="{{$products->name}}"  >
+   <input type="hidden" class="box" name="description"  value="{{$products->description}}"  >
+   <input type="hidden" class="box" name="image"  value="{{$products->image}}"  >
+   <input type="hidden" class="box" name="seller_email"  value="{{$products->email}}"  >
 
+   <p style="text-decoration: none; color:#666; font-size:20px; text-align:center;">enter the available units </p>
+   <input type="number" class="box" name="available_units"min="1" max = "100"placeholder="Minimum: 1;  Maximum: 100;"value="{{old('available_units')}}" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
+   <br></br>  
+   @if($errors->has('available_units'))
+      <span class="text-danger">{{$errors->first('available_units')}}</span>
+   @endif
+
+   <p style="text-decoration: none; color:#666; font-size:20px; text-align:center;">enter the minimum bidding price </p>
+   <input type="number" class="box" name="reserve_price" placeholder="Ksh. " value="{{old('reserve_price')}}" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
+   <br></br>  
+   @if($errors->has('reserve_price'))
+      <span class="text-danger">{{$errors->first('reserve_price')}}</span>
+   @endif
+
+   <p style="text-decoration: none; color:#666; font-size:20px; text-align:center;">enter the start date for bidding </p>
+   <input type="datetime-local" class="box" name="start_time" min="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}"  value="{{old('start_time')}}" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
+   <br></br>
+   @if($errors->has('start_time'))
+      <span class="text-danger">{{$errors->first('start_time')}}</span>
+   @endif
+
+   <p style="text-decoration: none; color:#666; font-size:20px; text-align:center;">enter the end date for bidding </p>
+   <input type="datetime-local" class="box" name="end_time" min="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}"  value="{{old('end_time')}}" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
+   <br></br>
+   @if($errors->has('end_time'))
+      <span class="text-danger">{{$errors->first('end_time')}}</span>
+   @endif
+   <br></br>
+   <input type="submit" name="add_product" value="Sell" class="option-btn" style="text-decoration: none; background-color:#ff4500;">
+      
+   </form>
+
+  <button> <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; align-content:left;">Delete</a></button>
+    
+    
+   
 
 
 <!-- Modal -->
@@ -109,7 +126,7 @@
       
    <p style="text-align:center; font-size:20px; color:purple;">Arge Auction Shop</p>
 
-		<p style="text-align:center; font-size:20px;">Are You sure you want to delete </p>
+		<p style="text-align:center; font-size:20px;">Are You sure you want to delete ? </p>
 
       <button><a href="{{url('delete_products/' . $products->id) }}" style="text-decoration: none; " class="delete-btn">Delete</a></button>
 

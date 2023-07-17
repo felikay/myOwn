@@ -30,22 +30,23 @@
         
         <div class="box">
       <h2 style="color: brown;">[--{{$unapprovedproducts}}--]</h2>
-         <p> <a href="{{ route('seller.unapprovedproducts') }}" style="text-decoration: none; color:brown;">Unapproved Arts</a> </p>
-      </div>
-
-      <div class="box">
-      <h2 style="color: red;">[--{{$blockedproducts}}--]</h2>
-         <p> <a href="{{ route('seller.blockedproducts') }}" style="text-decoration: none; color:red;">Blocked Arts</a> </p>
+         <p> <a href="{{ route('seller.unapprovedproducts') }}" style="text-decoration: none; color:brown;">Waiting List</a> </p>
       </div>
 
       <div class="box">
       <h2 style="color: green;">[--{{$approvedproducts}}--]</h2>
-         <p> <a href="{{ route('seller.approvedproducts') }}" style="text-decoration: none; color:green;">Yet To sell arts</a> </p>
+         <p> <a href="{{ route('seller.approvedproducts') }}" style="text-decoration: none; color:green;">Approved arts</a> </p>
       </div>
 
       <div class="box">
-        <h2 style="color: purple;">[--{{$totalproducts}}--]</h2>
-        <p> <a href="{{route('seller.displayproducts')}}" style="text-decoration: none; color:purple;">Total Art Pieces</a> </p>
+        <h2 style="color: #808000;">[--{{$postedproducts}}--]</h2>
+        <p> <a href="{{route('seller.postedproducts')}}" style="text-decoration: none; color:#808000;">On sale</a> </p>
+        </div>
+
+
+      <div class="box">
+      <h2 style="color: red;">[--{{$blockedproducts}}--]</h2>
+         <p> <a href="{{ route('seller.blockedproducts') }}" style="text-decoration: none; color:red;">Blocked Arts</a> </p>
       </div>
 
       <div class="box">
@@ -54,9 +55,20 @@
         </div>
 
         <div class="box">
-        <h2 style="color: #808000;">[--{{$postedproducts}}--]</h2>
-        <p> <a href="{{route('seller.postedproducts')}}" style="text-decoration: none; color:#808000;">Posted Arts</a> </p>
-        </div>
+      <h2 style="color: orange;">[--{{$expired}}--]</h2>
+         <p> <a href="{{ route('seller.endedauction') }}" style="text-decoration: none; color:orange;">Expired auctions</a> </p>
+      </div>
+
+      
+
+      <div class="box">
+        <h2 style="color: purple;">[--{{$totalproducts}}--]</h2>
+        <p> <a href="{{route('seller.displayproducts')}}" style="text-decoration: none; color:purple;">Total Art Pieces</a> </p>
+      </div>
+
+     
+
+        
 
 
         
