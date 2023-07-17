@@ -22,7 +22,7 @@
 
 <section class="add-products">
 
-   <h1 class="title">Add Products</h1>
+   <h1 class="title">Add New Art Piece</h1>
 
    <form action="{{route('add.products')}}" method="post" enctype="multipart/form-data">
       @csrf
@@ -36,7 +36,7 @@
        <br></br>
        
 
-      <h3>Add product</h3>
+      <h3>Add New Art Piece</h3>
 
       <div class="box">
       <input type="name" name="name" placeholder="enter product name" value="{{old('name')}}" size="35%" >
@@ -45,33 +45,16 @@
       <span class="text-danger">{{$errors->first('name')}}</span>
       @endif
 
-
+     
       <div class="box">
-      <input type="name" name="category" placeholder="enter category of the product" value="{{old('category')}}" size="35%" >
-      </div>
-      @if($errors->has('category'))
-      <span class="text-danger">{{$errors->first('category')}}</span>
-      @endif
-
-      
-
-      <div class="box">
-      <input type="name" name="description" placeholder="enter the product description"  size="35%" value="{{old('description')}}">
-      </div>
-      @if($errors->has('description'))
-      <span class="text-danger">{{$errors->first('description')}}</span>
-      @endif
-
-
-      <div class="box">
-      <input type="number" name="reserve_price" placeholder="enter the product reserve price"  size="35%" value="{{old('price')}}">
+      <input type="number" name="reserve_price" placeholder="enter the product reserve price" style="width:82%;"  size="35%" value="{{old('price')}}">
       </div>
       @if($errors->has('reserve_price'))
       <span class="text-danger">{{$errors->first('reserve_price')}}</span>
       @endif
 
           
-      <p style="text-decoration: none; color:#666; font-size:20px; text-align:left;">enter the start date for bidding </p>
+      <p style="text-decoration: none; color:#666; font-size:20px; text-align:left;">enter the art image </p>
       <div class="box">
       <input type="file" name="image" placeholder="Upload Product image"  size="35%" value="{{old('image')}}">
       </div>
@@ -79,27 +62,12 @@
       <span class="text-danger">{{$errors->first('image')}}</span>
       @endif
       
-      <p style="text-decoration: none; color:#666; font-size:20px; text-align:left;">enter the start date for bidding </p>
-      <div class="box">
-      <input type="datetime-local" min="{{Carbon\Carbon::now()->format('d-m-Y H:i:s')}}" name="start_date" size="35%" value="{{old('start_date')}}">
-      </div>
-      @if($errors->has('start_date'))
-      <span class="text-danger">{{$errors->first('start_date')}}</span>
-      @endif
-      
-      <p style="text-decoration: none; color:#666; font-size:20px; text-align:left;">enter the end date for bidding </p>
-      <div class="box">
-      <input type="datetime-local" name="end_date" size="35%" value="{{old('end_date')}}">
-      </div>
-      @if($errors->has('end_date'))
-      <span class="text-danger">{{$errors->first('end_date')}}</span>
-      @endif
-
-     
+           
       <input type="hidden" name="email"  size="35%" value="{{ Auth::user()->email }}">
       
 
       <input type="submit" name="add_product" value="Add Product" class="option-btn">
+      <a href="{{route('seller.home') }}" style="text-decoration: none; background-color:black;" class="option-btn">Go Back</a>
 
    </form>
 

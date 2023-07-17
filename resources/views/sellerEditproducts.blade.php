@@ -22,7 +22,7 @@
 
 <section class="add-products">
 
-   <h1 class="title">Edit Products</h1>
+   <h1 class="title">Edit Art</h1>
 
    <form action="{{route('edit.products', $products->id)}}" method="post" enctype="multipart/form-data">
       @csrf
@@ -38,7 +38,7 @@
        <br></br>
        
 
-      <h3>Edit product</h3>
+      <h3>Edit Art</h3>
 
       <div class="box">
       <input type="name" name="name" placeholder="enter product name" value="{{ $products->name }}" size="35%" >
@@ -48,23 +48,7 @@
       @endif
 
 
-      <div class="box">
-      <input type="name" name="category" placeholder="enter category of the product" value="{{ $products->category }}" size="35%" >
-      </div>
-      @if($errors->has('category'))
-      <span class="text-danger">{{$errors->first('category')}}</span>
-      @endif
-
-      
-
-      <div class="box">
-      <input type="name" name="description" placeholder="enter the product description"  size="35%" value="{{ $products->description }}">
-      </div>
-      @if($errors->has('description'))
-      <span class="text-danger">{{$errors->first('description')}}</span>
-      @endif
-
-
+     
       <div class="box">
       <input type="number" name="reserve_price" placeholder="enter the product reserve price"  size="35%" value="{{ $products->reserve_price }}">
       </div>
@@ -73,7 +57,7 @@
       @endif
 
           
-      <p style="text-decoration: none; color:#666; font-size:20px; text-align:left;">enter the start date for bidding </p>
+      <p style="text-decoration: none; color:#666; font-size:20px; text-align:left;">enter the art image </p>
       <div class="box">
       <input type="file" name="image" placeholder="Upload Product image"  size="35%" value="{{ $products->image }}">
       </div>
@@ -81,27 +65,13 @@
       <span class="text-danger">{{$errors->first('image')}}</span>
       @endif
       
-      <p style="text-decoration: none; color:#666; font-size:20px; text-align:left;">enter the start date for bidding </p>
-      <div class="box">
-      <input type="date" name="start_date" size="35%" value="{{ $products->start_date }}">
-      </div>
-      @if($errors->has('start_date'))
-      <span class="text-danger">{{$errors->first('start_date')}}</span>
-      @endif
-      
-      <p style="text-decoration: none; color:#666; font-size:20px; text-align:left;">enter the end date for bidding </p>
-      <div class="box">
-      <input type="date" name="end_date" size="35%" value="{{ $products->end_date }}">
-      </div>
-      @if($errors->has('end_date'))
-      <span class="text-danger">{{$errors->first('end_date')}}</span>
-      @endif
+     
 
      
       <input type="hidden" name="email"  size="35%" value="{{ Auth::user()->email }}">
       
 
-      <input type="submit" name="add_product" value="Add Product" class="option-btn">
+      <input type="submit" name="add_product" value="Edit art" class="option-btn">
       <a href="{{route('seller.unapprovedproducts') }}" style="text-decoration: none; background-color:black;" class="option-btn">Never Mind</a>
 
    </form>

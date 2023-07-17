@@ -144,7 +144,7 @@
             <div class="dropdown-content1">
             
             <a style="text-decoration: none;" href="{{ route('admin.newproducts') }}">Unapproved </a>
-            <a style="text-decoration: none;" href="{{ route('admin.viewproducts') }}">On sale</a>
+            <a style="text-decoration: none;" href="{{ route('admin.viewproducts') }}">Approved</a>
             <a style="text-decoration: none;" href="{{ route('admin.blockedproducts') }}">Blocked </a>
 
 

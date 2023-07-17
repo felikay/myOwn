@@ -16,7 +16,7 @@
 </head>
 <body>
    
-@include('bidderHeader');
+@include('loginHeader');
 
 <div class="heading">
    <h3>Apply as a vendor</h3>

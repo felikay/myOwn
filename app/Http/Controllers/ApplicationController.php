@@ -93,9 +93,9 @@ class applicationController extends Controller
             $data->save();
             if($data)
             {
-                return redirect('applications')->withSuccess('Application successfully delivered'); 
+                return redirect('applications')->withSuccess('Your Application has been successfully delivered. We will get back to you once its verified.'); 
             }else{
-                return redirect('applications')->withFail('Application not successfull');
+                return redirect('applications')->withFail('Failed,Please try again later');
             }
     
 

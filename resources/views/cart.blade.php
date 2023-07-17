@@ -63,21 +63,16 @@
    <div id="first">
    <img height= "500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
    
-   <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Reserve Price : <span style="color:purple; font-size:20px;">Ksh. {{$products->reserve_price}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Time Left : <span style="color:purple; font-size:20px;">{{$products->start_date}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Art Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Reserve Price : <span style="color:purple; font-size:20px;">ETH. {{$products->reserve_price}}</span> </p>
+   
+    <!-- Bid form  -->
+   <div>
+   <input type="number" class="box" name="" min="{{$products->reserve_price}}" placeholder="Min. bidding price: {{$products->reserve_price}}" value="" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;padding:20px 40px;" >
+   <button class="option-btn" style="background-color:#98777b;">Bid</button>
+   </div>
 
-   <form action="" method="post" >
-      @csrf
-      <input type="hidden" name="name" placeholder="enter your name" value=""  >
-      <input type="hidden" name="email" placeholder="enter your email" value=""  >
-      <input type="hidden" name="type" placeholder="enter your email" value=""  >
-      <input type="number" class="box" name="type" placeholder="enter your bidding price" value="" style="width: 350px; height: 50px; font-size:20px; border: 2px solid #666; border-radius: 4px;
-      padding:20px 40px;" >
-      <br></br>
-      <a href="" style="text-decoration: none; background-color:#98777b;" class="delete-btn">Bid</a>
-   </form>
-  
+     
   
    <a href="{{url('delete_cart/' . $products->id) }}" style="text-decoration: none;" class="delete-btn">Remove from cart</a>
    

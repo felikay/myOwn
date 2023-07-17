@@ -33,7 +33,15 @@ class HomeController extends Controller
      {
         $userId = Auth::user()->email;
         $list = Cart::where ('email',  $userId)->count();
-        return view('bidderHome',compact('list'));
+        $nolist = '';
+        return view('bidderHome',compact('list','nolist'));
+
+     }
+
+     public function welcome()
+     {
+        
+        return view('welcome');
 
      }
 
@@ -44,9 +52,11 @@ class HomeController extends Controller
         $userId = Auth::user()->email;
         $totalproducts = Products::where ('email',  $userId)->count();
         $unapprovedproducts = Products::where('blocked', 'No Reviews')->where ('email',  $userId)->count();
-        $approvedproducts = Products::where('blocked', 'Denied')->where ('email',  $userId)->count();
-        $blockedproducts = Products::where('blocked', 'Accepted')->where ('email',  $userId)->count();
-        return view('sellerHome', compact('totalproducts','unapprovedproducts','approvedproducts','blockedproducts'));
+        $approvedproducts = Products::where('blocked', 'Accepted')->where ('email',  $userId)->count();
+        $blockedproducts = Products::where('blocked', 'Denied')->where ('email',  $userId)->count();
+        $soldproducts = Products::where('status', '1')->where ('email',  $userId)->count();
+        $postedproducts = Products::where ( 'status', 0 )->where ('email',  $userId)->where ( 'posted', 'Posted' )->where('blocked', 'Accepted')->count();
+        return view('sellerHome', compact('totalproducts','unapprovedproducts','approvedproducts','blockedproducts','soldproducts','postedproducts'));
     }
 
     public function adminHome()
@@ -114,9 +124,10 @@ class HomeController extends Controller
     public function shop()
     {
 
-      $data = Products::where ( 'blocked','Accepted')->get();
+      
       $userId = Auth::user()->email;
       $list = Cart::where ('email',  $userId)->count();
+      $data = Products::where ( 'status', 0 )->where ( 'blocked','Accepted')->where ( 'posted', 'Posted' )->get();
 
       return view('shop',compact('data','list'));
     }

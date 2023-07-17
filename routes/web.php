@@ -28,7 +28,7 @@ use App\Http\Controllers\API\AuctionController;
 
 
 Route::get('/', function () {
-    return view('bidderHome');
+    return view('welcome');
 });
 
 
@@ -41,6 +41,10 @@ All Login Routes List
 --------------------------------------------*/
 
 Auth::routes();
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/welcome', [HomeController::class, 'welcome'])->name('welcome');
+});
 
 
 Route::group(['middleware'=>'disable_back'],function(){
@@ -81,6 +85,14 @@ Route::get('/applications/status/{user_id}/{status_code}',[adminController::clas
 
 Route::middleware('auth')->group(function () {
 Route::get('/products/status/{user_id}/{status_code}',[adminController::class, 'productStatus'])->name('product.status');;
+});
+
+Route::middleware('auth')->group(function () {
+Route::get('/products/sold/{user_id}/{status_code}',[sellerController::class, 'productSold'])->name('product.sold');;
+});
+
+Route::middleware('auth')->group(function () {
+Route::get('/products/posted/{user_id}/{status_code}',[sellerController::class, 'productPosted'])->name('product.posted');;
 });
 
 
@@ -312,7 +324,16 @@ Route::get('/seller/unapprovedproducts', [App\Http\Controllers\sellerController:
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/seller/postedproducts', [App\Http\Controllers\sellerController::class, 'sellerPostedproducts'])->name('seller.postedproducts');
+});
+
+
+Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/seller/blockedproducts', [App\Http\Controllers\sellerController::class, 'sellerBlockedproducts'])->name('seller.blockedproducts');
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/seller/displayproducts', [App\Http\Controllers\sellerController::class, 'sellerDisplayproducts'])->name('seller.displayproducts');
 });
 
 /*------------------------------------------
@@ -329,6 +350,12 @@ Route::get('seller/editproducts/{id}', [App\Http\Controllers\sellerController::c
 Route::group(['middleware'=>'disable_back'],function(){
 Route::put('seller/editproducts/{id}', [App\Http\Controllers\sellerController::class, 'editProducts'])->name('edit.products');
 });
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/sold/products', [App\Http\Controllers\sellerController::class, 'soldProducts'])->name('sold.products');
+    });
+
+
 
 
 /*------------------------------------------

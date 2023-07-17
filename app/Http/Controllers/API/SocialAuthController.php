@@ -38,7 +38,7 @@ class SocialAuthController extends Controller
                   
         }
         Auth::login($data);
-        return redirect('welcome');
+        return redirect('/bidder/home');
      
     }
 }

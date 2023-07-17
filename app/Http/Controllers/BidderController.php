@@ -57,9 +57,9 @@ class BidderController extends Controller
 
             if($data)
             {
-                return redirect()->back()->with('success', 'Product Added to cart');  
+                return redirect()->back()->with('success', 'Art Piece has been successfully added to your Cart');  
             }else{
-                return redirect()->back()->with('error','Failed, try again');
+                return redirect()->back()->with('error','Failed, Please try again');
             }
 }
 
@@ -71,7 +71,7 @@ public function delete_cart($id)
 
       $delete_cart = Cart::find($id);
       $delete_cart -> delete();
-      return redirect('cart')->with('success','Product Removed from cart');
+      return redirect('cart')->with('success','Art Piece has been successfully removed from your cart.');
      
     }
 }

@@ -11,6 +11,7 @@
 
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
+   <link rel="stylesheet" href="{{asset('css/delete.css')}}">
 
    <style>
       #wrapper {
@@ -46,6 +47,7 @@
        @if(Session::has('fail'))
        <div class="alert-danger">{{Session::get('fail')}}</div>
        @endif
+       <h3 style="text-align:center; font-size:50px;">Blocked Art Pieces</h3>
  
 @if($data->count() > 0)
    
@@ -54,27 +56,69 @@
    $i = 1;
    @endphp
    @foreach($data as $products)
+
+   
   
    <div id="first">
    <img height= "500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
    <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Email : <span style="color:purple; font-size:20px;">{{$products->email}}</span> </p>
    <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Category : <span style="color:purple; font-size:20px;">{{$products->category}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Price : <span style="color:purple; font-size:20px;">{{$products->reserve_price}}</span> </p>
-   <p style="color:#666; font-size:20px;"> Start Date : <span style="color:purple; font-size:20px;">{{$products->start_date}}</span> </p>
-   <p style="color:#666; font-size:20px;"> End Date : <span style="color:purple; font-size:20px;">{{$products->start_date}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Reserved Price : <span style="color:purple; font-size:20px;">ETH. {{$products->reserve_price}}</span> </p>
    <p style="color:#666; font-size:20px;"> Status : <span style="color:purple; font-size:20px;">{{$products->blocked}}</span> </p>
-   <a href="{{url('delete_products/' . $products->id) }}" style="text-decoration: none;" class="delete-btn">Delete</a>
->
+  
+
+   <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a>
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal-wrapper" id="modal">
+	<div class="modal-body card">
+		<div class="modal-header">
+			<h2 ></h2>
+         <br></br>
+			<a href="#!" role="button" class="close" aria-label="close this modal" style="color: red;">
+				<svg viewBox="0 0 24 24">
+					<path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
+				</svg>&nbsp;&nbsp;
+			</a>
+		</div>
+      
+   <p style="text-align:center; font-size:20px; color:purple;">Arge Auction Shop</p>
+
+		<p style="text-align:center; font-size:20px;">Are You sure you want to delete </p>
+
+      <button><a href="{{url('delete_products/' . $products->id) }}" style="text-decoration: none; " class="delete-btn">Delete</a></button>
+
+      <br></br>
    </div>
+   
+	
+	<a href="#!" class="outside-trigger"></a>
+</div>
+
+
+
+</div>
 @endforeach
 @else
-<p style="color:red; font-size:30px;"> <span>There are no blocked products</span> </p>
+<p style="color:red; font-size:30px;"> <span>You have no blocked art pieces</span> </p>
 @endif
 
 </div>
-
 
     
 

@@ -97,13 +97,23 @@
             <a style="text-decoration: none;" href="{{ route('sellerHome') }}">Home</a>
                         
             <div class="dropdown1">
-            <button class="dropbtn1">Products</button>
+            <button class="dropbtn1">Sales</button>
             <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{route('add.products')}}">Add Item</a>
+            <a style="text-decoration: none;" href="{{route('add.products')}}">New Art</a>
             <a style="text-decoration: none;" href="{{ route('seller.unapprovedproducts') }}">Unapproved</a>
-            <a style="text-decoration: none;" href="{{ route('seller.blockedproducts') }}">Blocked</a>
-            <a style="text-decoration: none;" href="{{ route('seller.approvedproducts') }}">Approved </a>
-            <a style="text-decoration: none;" href="{{ route('display.sellers') }}">Sold Items</a>
+                   
+           
+            </div>
+            </div>
+
+
+            <div class="dropdown1">
+            <button class="dropbtn1">My Arts</button>
+            <div class="dropdown-content1">
+            <a style="text-decoration: none;" href="{{route('seller.approvedproducts')}}">Approved</a>
+            <a style="text-decoration: none;" href="{{route('seller.postedproducts')}}">Posted</a>
+            <a style="text-decoration: none;" href="{{ route('sold.products') }}">Sold Arts</a>
+            <a style="text-decoration: none;" href="{{ route('seller.blockedproducts') }}">Blocked </a>
            
             </div>
             </div>

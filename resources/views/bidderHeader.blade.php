@@ -60,11 +60,9 @@
          </nav>
 
          <div class="icons">
-            <div id="menu-btn" class="fas fa-bars"></div>
-            <a href="search_page.php" style="text-decoration: none;" class="fas fa-search"></a>
-            <div id="user-btn"  class="fas fa-user"></div>
             
-            <a href="{{ route('cart') }}" style="text-decoration: none;"> <i class="fas fa-shopping-cart"></i> <span style="color:green;"></span> </a>
+            
+            <a href="{{ route('cart') }}" style="text-decoration: none;"> <i class="fas fa-shopping-cart"></i> <span style="color:green;">[-- {{$list}} --]</span> </a>
          </div>
 
          @guest

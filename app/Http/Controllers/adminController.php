@@ -170,7 +170,7 @@ Delete Buttons
 
       $delete_user = User::find($id);
       $delete_user -> delete();
-      return redirect('display/bidders')->with('success','Data deleted');
+      return redirect()->back()->with('success','Bidder Account Successfully deleted');
      
     }
 
@@ -180,7 +180,7 @@ Delete Buttons
 
       $delete_user = User::find($id);
       $delete_user -> delete();
-      return redirect('display/sellers')->with('success','Data deleted');
+      return redirect()->back()->with('success','Sellers Account Successfully deleted');
      
     }
 
@@ -190,7 +190,7 @@ Delete Buttons
 
       $delete_user = User::find($id);
       $delete_user -> delete();
-      return redirect('display/admins')->with('success','Data deleted');
+      return redirect()->back()->with('success','Admin Account Successfully deleted');
      
     }
 
@@ -200,7 +200,7 @@ Delete Buttons
 
       $delete_user = User::find($id);
       $delete_user -> delete();
-      return redirect('display/accounts')->with('success','Data deleted');
+      return redirect()->back()->with('success','Account Successfully deleted');
      
     }
     
@@ -210,7 +210,7 @@ Delete Buttons
 
       $delete_user = Application::find($id);
       $delete_user -> delete();
-      return redirect('display/applications')->with('success','Data deleted');
+      return redirect()->back()->with('success','Application Successfully deleted');
      
     }
 
@@ -220,7 +220,7 @@ Delete Buttons
 
       $delete_user = User::find($id);
       $delete_user -> delete();
-      return redirect('display/blocked')->with('success','Data deleted');
+      return redirect()->back()->with('success','Blocked account successfully deleted');
      
     }
 
@@ -230,7 +230,17 @@ Delete Buttons
 
       $delete_products = Products::find($id);
       $delete_products -> delete();
-      return redirect('admin/viewproducts')->with('success','Data deleted');
+      return redirect()->back()->with('success','Art Piece successfully deleted');
+     
+    }
+
+    public function delete_deactivated($id)
+    
+    {
+
+      $delete_user = User::find($id);
+      $delete_user -> delete();
+      return redirect()->back()->with('success','Deactivated account deleted successfully');
      
     }
 
@@ -260,7 +270,7 @@ Disable accounts
 
             if($update_user){
                 
-              return redirect()->back()->with('success', 'Acceptance Status Updated Successfuly');  
+              return redirect()->back()->with('success', 'Acceptance Status of the account has been Successfully updated');  
               }
 
               return redirect()->back()->with('error','Failed to update the status');
@@ -290,7 +300,7 @@ Disable accounts
 
             if($update_user){
                 
-              return redirect()->back()->with('success', 'Acceptance Status Updated Successfuly');  
+              return redirect()->back()->with('success', 'Acceptance Status of the application has been Successfully Updated ');  
               }
 
               return redirect()->back()->with('error','Failed to update the status');
@@ -311,7 +321,7 @@ Disable accounts
 
             if($update_user){
                 
-                return redirect()->back()->with('success', 'Acceptance Status Updated Successfuly');  
+                return redirect()->back()->with('success', 'Acceptance Status of the product has been Successfully Updated ');  
                 }
 
                 return redirect()->back()->with('error','Failed to update the status');

@@ -25,6 +25,8 @@
        <div class="alert-danger">{{Session::get('fail')}}</div>
        @endif
 
+       <h3 style="text-align:center; font-size:50px;">Unapproved Applications</h3>
+
 @if($data->count() > 0)
    
    

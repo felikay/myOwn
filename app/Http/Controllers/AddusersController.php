@@ -25,9 +25,9 @@ class AddusersController extends Controller
 
         if($data)
         {
-            return redirect()->route('add.users')->withSuccess('Account Successfully Created'); 
+            return redirect()->back()->with('success', 'New Account created successfully ');
         }else{
-            return redirect()->route('add.users')->withFail('Account Successfully Created');
+            return redirect()->back()->with('error','Failed , try again later');
         }
 
 }
@@ -50,9 +50,9 @@ public function displayapplications(Request $request){
 
     if($data)
     {
-        return redirect()->route('display.applications')->withSuccess('Account Successfully Created'); 
+        return redirect()->back()->with('success', 'A New Account is successfully created ');
     }else{
-        return redirect()->route('display.applications')->withFail('Account Successfully Created');
+        return redirect()->back()->with('error','Failed , Try again later');
     }
 
 }

@@ -20,18 +20,28 @@ class sellerController extends Controller
      
     }
 
+
+    public function sellerPostedproducts()
+    
+    {
+      $userId = Auth::user()->email;
+      $data = Products::where ( 'status', 0 )->where ('email',  $userId)->where ( 'posted', 'Posted' )->get();
+      return view('sellerPostedproducts',compact('data'));
+    
+     
+     
+    }
+
+   
+
     
     
      public function addProducts(Request $request){
         
 
         $request->validate([
-            'name' => 'required|unique:products',
-            'category' =>'required',
-            'description' => 'required',
+            'name' => 'required',
             'reserve_price' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
             'email' => 'required',
             'image' => 'required',
                 
@@ -42,11 +52,7 @@ class sellerController extends Controller
         $data = new Products();
 
             $data->name = $request->input('name');
-            $data->category =$request ->input('category');
-            $data->description = $request->input('description');
             $data->reserve_price = $request->input('reserve_price');
-            $data->start_date =$request->input('start_date');
-            $data->end_date = $request->input('end_date');
             $data->email = $request->input('email');
 
             if($request->hasfile('image'))
@@ -62,9 +68,9 @@ class sellerController extends Controller
             $data->save();
             if($data)
             {
-                return redirect('add/products')->withSuccess('Products successfully uploaded'); 
+                return redirect('add/products')->withSuccess('Your new Art Piece has been successfully delivered for approval.'); 
             }else{
-                return redirect('add/products')->withFail('Products not apploaded');
+                return redirect('add/products')->withFail('Failed, Please try again');
             }
     
 
@@ -87,17 +93,12 @@ public function sellerEditproducts($id)
 
 
 
-
     public function editProducts(Request $request, $id){
         
 
         $request->validate([
-            'name' => 'required|unique:products',
-            'category' =>'required',
-            'description' => 'required',
+            'name' => 'required',
             'reserve_price' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
             'email' => 'required',
             'image' => 'required',
                 
@@ -111,11 +112,7 @@ public function sellerEditproducts($id)
         $products = Products::find($id);
 
             $products->name = $input['name'];
-            $products->category = $input['category'];
-            $products->description = $input['description'];
             $products->reserve_price = $input['reserve_price'];
-            $products->start_date =$input['start_date'];
-            $products->end_date = $input['end_date'];
             $products->email = $input['email'];
 
             if($request->hasfile('image'))
@@ -131,7 +128,7 @@ public function sellerEditproducts($id)
             $products->save();
             if($products)
             {
-                return redirect('seller/unapprovedproducts')->withSuccess('Products successfully updated'); 
+                return redirect('seller/unapprovedproducts')->withSuccess('The art piece information has been successfully updated'); 
             }else{
                 return redirect('seller/unapprovedproducts')->withFail('Products not updated');
             }
@@ -155,7 +152,7 @@ Delete Buttons
 
       $delete_products = Products::find($id);
       $delete_products -> delete();
-      return redirect('seller/displayproducts')->with('success','Data deleted');
+      return redirect('seller/displayproducts')->with('success','Art Piece has been successfully deleted.');
      
     }
 
@@ -165,6 +162,15 @@ Delete Buttons
 display items
 --------------------------------------------
 --------------------------------------------*/
+
+public function soldProducts()
+{
+
+    $userId = Auth::user()->email;
+    $data = Products::where ( 'status', 1 )->where ('email',  $userId)->get();
+  return view('soldProducts',compact('data'));
+}
+
 
 
 
@@ -193,9 +199,49 @@ display items
     public function sellerApprovedproducts()
     {
       $userId = Auth::user()->email;
-      $data = Products::where ( 'blocked','Accepted')->where ('email',  $userId)->get();
+      $data = Products::where ( 'status', 0 )->where ( 'blocked','Accepted')->where ( 'posted', 'Not Posted' )->where ('email',  $userId)->get();
       return view('sellerApprovedproducts',compact('data'));
     }
+
+
+    public function productSold($user_id, $status_code)
+     {
+        try{
+            $update_user = Products::whereId($user_id)->update([
+                'status' => $status_code
+            ]);
+
+            if($update_user){
+                
+                return redirect()->back()->with('success', 'The Art Piece is sold');  
+                }
+
+                return redirect()->back()->with('error','Failed , try agin later');
+        } catch (\Throwable $th) {
+            throw $th;
+
+        }
+     }
+
+
+     public function productPosted($user_id, $status_code)
+     {
+        try{
+            $update_user = Products::whereId($user_id)->update([
+                'posted' => $status_code
+            ]);
+
+            if($update_user){
+                
+                return redirect()->back()->with('success', 'The Art Piece post status has been successfully updated');  
+                }
+
+                return redirect()->back()->with('error','Failed , try agin later');
+        } catch (\Throwable $th) {
+            throw $th;
+
+        }
+     }
 
     
   
