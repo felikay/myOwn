@@ -13,6 +13,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\API\SocialAuthController;
 use App\Http\Controllers\API\AuctionController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\PaymentController;
 
 
 
