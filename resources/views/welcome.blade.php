@@ -24,7 +24,11 @@
 <section class="home">
 
    <div class="content">
+<<<<<<< HEAD
       <h3>FE</h3>
+=======
+      <h3>Arge Auction Shop.</h3>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
       <p>Bid Farewell To High Prices. Bid It To Win It. Our Auctions Are Fair & Profitable.</p>
       <a href="{{ route('shop') }}"style="text-decoration: none;" class="white-btn">Shop Now</a>
    </div>

@@ -61,7 +61,13 @@
    <p> ID B : <span><a style="text-decoration:none; color:purple;" href="{{route('display.nationalback', $applications->id)}}">View</a>|<a style="text-decoration:none; color:purple;" href="{{route('download.nationalback', $applications->national_id_back)}}">Download</a></span> </p>
    <p> Proof F : <span><a style="text-decoration:none; color:purple;" href="{{route('display.prooffront', $applications->id)}}">View</a>|<a style="text-decoration:none; color:purple;" href="{{route('download.prooffront', $applications->proof_front)}}">Download</a></span> </p>
    <p> proof B : <span><a style="text-decoration:none; color:purple;" href="{{route('display.proofback', $applications->id)}}">View</a>|<a style="text-decoration:none; color:purple;" href="{{route('download.proofback', $applications->proof_back)}}">Download</a></span> </p>
+<<<<<<< HEAD
    
+=======
+   <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a> 
+   <a href="{{route('applications.status', ['user_id' => $applications->id, 'status_code' => 'Accepted']) }}" style="text-decoration: none; background-color:#47d247;" class="option-btn" >Accept</i></a>
+
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    
    
    </div>
@@ -99,7 +105,11 @@
 @endforeach
 </div>
 @else
+<<<<<<< HEAD
 <p style="color:red; font-size:30px;"> <span></span> </p>
+=======
+<p style="color:red; font-size:30px;"> <span>There are no Denied  Accounts</span> </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 @endif
 
 </section>

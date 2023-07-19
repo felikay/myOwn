@@ -12,6 +12,10 @@
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
    <link rel="stylesheet" href="{{asset('css/delete.css')}}">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    <style>
    #wrapper {
       border: 1px solid white;
@@ -98,6 +102,7 @@
    @foreach($data as $products)
 
    
+<<<<<<< HEAD
    <div id="wrapper">
    <div id="first">
    <img height= "500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
@@ -108,6 +113,15 @@
    <p style="color:black; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
    <p style="color:black; font-size:20px;"> Reserved Price : <span style="color:purple; font-size:20px;">Ksh. {{$products->reserve_price}}</span> </p>
    <p style="color:black; font-size:20px;"> Status : <span style="color:purple; font-size:20px;">{{$products->blocked}}</span> </p>
+=======
+  
+   <div id="first">
+   <img height= "500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
+   <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Reserved Price : <span style="color:purple; font-size:20px;">Ksh. {{$products->reserve_price}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Status : <span style="color:purple; font-size:20px;">{{$products->blocked}}</span> </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
   
 
    <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a>
@@ -153,11 +167,20 @@
 	<a href="#!" class="outside-trigger"></a>
 </div>
 
+<<<<<<< HEAD
+=======
+
+
+</div>
+@endforeach
+@else
+<p style="color:red; font-size:30px;"> <span>You have no blocked art pieces</span> </p>
+@endif
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
 </div>
 </div>
 @endforeach
-
 
 
 

@@ -12,6 +12,7 @@
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
    <link rel="stylesheet" href="{{asset('css/delete.css')}}">
+<<<<<<< HEAD
 
    <style>
       .modal-wrapper {
@@ -35,6 +36,8 @@
       width: 100%;
    }
    </style>
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
 </head>
 <body>
@@ -65,10 +68,17 @@
    <p> Name : <span>{{$deactivated->name}}</span> </p>
    <p> Email : <span>{{$deactivated->email}}</span> </p>
    <p> Type : <span>{{ $deactivated->type }}</span> </p>
+<<<<<<< HEAD
    
   
    
    
+=======
+   <p> Created at : <span>{{ $deactivated->created_at }}</span> </p>
+   <p> Activation : <span>{{ $deactivated->created_at }}</span> </p>
+   
+   <a href="{{route('status.update', ['user_id' => $deactivated->id, 'status_code' => 0]) }}" style="text-decoration: none; background-color:#98777b;" class="delete-btn">Block</a>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
  
    <form action="{{ route('password.email') }}" method="post" style="margin-top: 0px;">
       @csrf
@@ -80,10 +90,17 @@
             
       
    </form>
+<<<<<<< HEAD
   <br>
 
 
    <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Block</a> 
+=======
+   <br></br>
+
+
+   <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a> 
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
 <!-- Modal -->
 <div class="modal-wrapper" id="modal">
@@ -98,6 +115,7 @@
 			</a>
 		</div>
       
+<<<<<<< HEAD
       <h2 style="text-align:center; font-size:20px;">Arge Auction Shop</h2>
       <div class="box" style="margin:10px; padding:0 0; background-color:#add8e6;">
    <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Name : <span>{{$deactivated->name}}</span> </p>
@@ -109,6 +127,13 @@
 		<p style="text-align:center; font-size:20px;">Are You sure you want to unblock this account ? </p>
 
       <button><a href="{{route('status.update', ['user_id' => $deactivated->id, 'status_code' => 0]) }}" style="text-decoration: none; " class="delete-btn">Block</a></button>
+=======
+   <p style="text-align:center; font-size:20px; color:purple;">Arge Auction Shop</p>
+
+		<p style="text-align:center; font-size:20px;">Are You sure you want to delete ? </p>
+
+      <button><a href="{{url('delete_deactivated/' . $deactivated->id) }}" style="text-decoration: none;" class="delete-btn">Delete</a></button>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
       <br></br>
    </div>
@@ -121,7 +146,11 @@
 @endforeach
 </div>
 @else
+<<<<<<< HEAD
 
+=======
+<p style="color:red; font-size:30px;"> <span>There are no Deactivated accounts</span> </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 @endif
 
 </section>

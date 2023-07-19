@@ -21,9 +21,12 @@ class Bid extends Model
     {
         return $this->belongsTo(Posted::class, 'product_id', 'product_id');
     }
+<<<<<<< HEAD
 
 
 
     
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
         
 }

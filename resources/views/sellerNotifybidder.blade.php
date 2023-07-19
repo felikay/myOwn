@@ -12,6 +12,7 @@
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
    <link rel="stylesheet" href="{{asset('css/delete.css')}}">
+<<<<<<< HEAD
    <style>
    #wrapper {
       border: 1px solid white;
@@ -75,15 +76,43 @@
       width: 100%;
    }
 </style>
+=======
+
+   <style>
+      #wrapper {
+    width: 100%;
+    border: 1px solid white;
+    overflow: hidden; /* will contain if #first is longer than #second */
+    display:block;
+    height:flex;
+     }
+    #first {
+    width: 701px;
+    border: 1px solid purple;
+    display:inline-block;
+    height:100%;
+    margin:20px;
+    text-align:center;
+    border-radius:1px;
+    padding-bottom:10px;
+    }
+    
+   </style>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    
    </head>
 
 @include('sellerHeader');
+<<<<<<< HEAD
 
 
 
 <body>
 
+=======
+<body>
+<div id="wrapper">
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
     
     
     @if(Session::has('success'))
@@ -100,6 +129,7 @@
       @foreach($productData as $productItem)
       
       
+<<<<<<< HEAD
       
       @foreach($productItem['image'] as $image)
 
@@ -109,12 +139,21 @@
       </div>
 
       <div id="second">
+=======
+      <div id="first">
+      @foreach($productItem['image'] as $image)
+         <img height="500px;" width="698px;" src="{{ asset('uploads/files/'. $image->image) }}">
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
          <p style="color:#666; font-size:20px; text-align:left;"> Art Piece: <span style="color:purple; font-size:20px;"> {{ $image->product_name }}</span></p>
          <p style="color:#666; font-size:20px; text-align:left;"> Description: <span style="color:purple; font-size:20px;"> {{ $image->description }}</span></p>
          <p style="color:#666; font-size:20px; text-align:left;"> Minimum set Price: <span style="color:purple; font-size:20px;"> Ksh. {{ $image->reserve_price }}</span></p>
          <p style="color:#666; font-size:20px; text-align:left;"> Auction period: <span style="color:red; font-size:20px;"> Expired</span></p>
 
+<<<<<<< HEAD
       
+=======
+      @endforeach
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
       <br></br>
 
@@ -161,6 +200,7 @@
       
       <a href="#!" class="outside-trigger"></a>
    </div>
+<<<<<<< HEAD
 
    </div>
    </div>
@@ -168,6 +208,11 @@
 @endforeach
 
 
+=======
+@endforeach
+
+</div>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
     
 

@@ -100,13 +100,19 @@
             <button class="dropbtn1">Accounts</button>
             
             <div class="dropdown-content1">
+<<<<<<< HEAD
             <a style="text-decoration: none;" href="{{ route('add.users') }}">Create Account</a>
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
             <a style="text-decoration: none; color:black;" href="{{ route('display.bidders') }}">Bidders</a>
             <a style="text-decoration: none;  color:black;" href="{{ route('display.sellers') }}">Sellers</a>
             <a style="text-decoration: none;  color:black;" href="{{ route('display.admins') }}">Admins</a>
             <a style="text-decoration: none;  color:black;" href="{{ route('display.blocked') }}">Blocked</a>
             <a style="text-decoration: none;  color:black;" href="{{ route('display.deactivated') }}">Deactivated</a>
+<<<<<<< HEAD
            
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
             
 
             </div>
@@ -131,12 +137,37 @@
             </div>
             </div>
 
+            
+<<<<<<< HEAD
+            <div class="dropdown-content1">
+            
+            <a style="text-decoration: none;  color:black;" href="{{ route('display.unapprovedapplications') }}">Waiting List</a>
+=======
+
+            
+
+            <div class="dropdown1">
+            <button class="dropbtn1">Products</button>
+            
+            <div class="dropdown-content1">
+            
+            <a style="text-decoration: none;  color:black;" href="{{ route('admin.newproducts') }}">Waiting List </a>
+            <a style="text-decoration: none;  color:black;" href="{{ route('admin.viewproducts') }}">Accepted</a>
+            <a style="text-decoration: none;  color:black;" href="{{ route('admin.blockedproducts') }}">Blocked </a>
+
+
+            
+            </div>
+            </div>
+
             <div class="dropdown1">
             <button class="dropbtn1">Applications</button>
             
             <div class="dropdown-content1">
             
             <a style="text-decoration: none;  color:black;" href="{{ route('display.unapprovedapplications') }}">Waiting List</a>
+            <a style="text-decoration: none;  color:black;" href="{{ route('display.applications') }}">Accepted</a>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
             <a style="text-decoration: none;  color:black;" href="{{ route('display.deniedapplications') }}">Denied</a>
            
 
@@ -151,7 +182,11 @@
             
             <div class="dropdown-content1">
             
+<<<<<<< HEAD
             <a style="text-decoration: none;  color:black;" href="{{ route('admin.analysis') }}">Graphs</a>
+=======
+            <a style="text-decoration: none;  color:black;" href="">Graphs</a>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
 
             
@@ -218,7 +253,11 @@
         <button STYLE="display:inline; float:left; " type="submit" href="{{ route('logout') }}" >Yes</button>
         </form>
        
+<<<<<<< HEAD
         <button STYLE="display:block; float:right; background-color:#721c08;  " id="close_up"  >No</button>
+=======
+        <button STYLE="display:block; float:right; background-color#721c08;  " id="close_up"  >No</button>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
         <div>
         <i class="fa fa-times" id="close"></i>
       </div> 

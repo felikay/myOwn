@@ -37,10 +37,14 @@ class Posted extends Model
         return $this->hasMany(Bid::class, 'product_id');
     }
 
+<<<<<<< HEAD
     public function products()
     {
         return $this->belongsTo(Products::class, 'product_id');
     }
+=======
+    
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
     protected $dates = ['start_time', 'end_time'];
 

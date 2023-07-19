@@ -104,6 +104,19 @@
 
    <div id="first">
    <img height= "500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
+<<<<<<< HEAD
+=======
+   <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Email : <span style="color:purple; font-size:20px;">{{$products->email}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
+   <p style="color:#666; font-size:20px;"> Price : <span style="color:purple; font-size:20px;">ETH. {{$products->reserve_price}}</span> </p>
+
+
+   
+   
+   
+>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    </div>
 
    <div id="second">

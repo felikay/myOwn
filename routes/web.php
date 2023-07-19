@@ -236,7 +236,11 @@ Route::get('/cartlist', [App\Http\Controllers\HomeController::class, 'cartlist']
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
+<<<<<<< HEAD
     Route::match(['get', 'post'],'/checkout', [App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkout');
+=======
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkout');
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
@@ -433,6 +437,7 @@ Route::get('/seller/endedauction', [App\Http\Controllers\sellerController::class
 
 
 
+<<<<<<< HEAD
 
 /*------------------------------------------
 --------------------------------------------
@@ -479,3 +484,5 @@ Route::controller(PaymentController::class)
     
 
 
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f

@@ -43,13 +43,21 @@
             <a href="#" class="fab fa-instagram" style="text-decoration: none;"></a>
             <a href="#" class="fab fa-linkedin" style="text-decoration: none;"></a>
          </div>
+<<<<<<< HEAD
          <p> FE <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a> | <a href="{{ route('applications') }}" style="text-decoration: none;">Apply as vendor</a>   </p>
+=======
+         <p> Arge <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a> | <a href="{{ route('applications') }}" style="text-decoration: none;">Apply as vendor</a>   </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
       </div>
    </div>
 
    <div class="header-2">
       <div class="flex">
+<<<<<<< HEAD
          <a href="home" style="text-decoration: none;"class="logo">FE.</a>
+=======
+         <a href="home" style="text-decoration: none;"class="logo">Arge.</a>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
          <nav class="navbar">
             <a style="text-decoration: none;" href="{{ route('bidderHome') }}">home</a>

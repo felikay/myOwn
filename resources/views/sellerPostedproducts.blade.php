@@ -4,12 +4,17 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
    <title>Seller Panel</title>
+=======
+   <title>Bidder Panel</title>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
+<<<<<<< HEAD
    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
    <link rel="stylesheet" href="{{asset('css/delete.css')}}">
    <style>
@@ -86,6 +91,36 @@
 
 <h3 style="text-align:center; font-size:50px;">Art pieces on sale</h3>
    
+=======
+   <link rel="stylesheet" href="{{asset('css/style.css')}}">
+   <link rel="stylesheet" href="{{asset('css/delete.css')}}">
+   <style>
+      #wrapper {
+         width: 100%;
+         border: 1px solid white;
+         overflow: hidden; /* will contain if #first is longer than #second */
+         display:block;
+         height:flex;
+      }
+      #first {
+         width: 701px;
+         border: 1px solid purple;
+         display:inline-block;
+         height:100%;
+         margin:20px;
+         text-align:center;
+         border-radius:1px;
+         padding-bottom:10px;
+      }
+   </style>
+</head>
+
+@include('sellerHeader');
+<body>
+
+<h3 style="text-align:center; font-size:50px;">Art pieces on sale</h3>
+   <div id="wrapper">
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
       @if(Session::has('success'))
          <div class="alert-success">{{Session::get('success')}}</div>
       @endif
@@ -93,7 +128,11 @@
          <div class="alert-danger">{{Session::get('fail')}}</div>
       @endif
 
+<<<<<<< HEAD
      
+=======
+      @if($data->count() > 0)
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
          @php
             function isBiddingExpired($products) {
                $endTime = strtotime($products->end_time);
@@ -102,6 +141,7 @@
          @endphp
 
          @foreach($data as $products)
+<<<<<<< HEAD
 
          <div id="wrapper">
             <div id="first" style="@if(isBiddingExpired($products)) display:none; @endif">
@@ -112,6 +152,15 @@
                <p style="text-decoration: none; color:#666; font-size:15px; text-align:left;"> Description: <span style="color:black; font-size:15px;">{{$products->description}}</span></p>
                <p style="text-decoration: none; color:#666; font-size:15px; text-align:left;"> Available Units: <span style="color:black; font-size:15px;">{{$products->available_units}}</span></p>
                <p style="text-decoration: none; color:#666; font-size:15px; text-align:left;"> Reserve Price: <span style="color:black; font-size:15px;">Ksh. {{$products->reserve_price}}</span></p>
+=======
+            <div id="first" style="@if(isBiddingExpired($products)) display:none; @endif">
+               <img height="500px;" width="698px;" src="{{ asset('uploads/files/' .$products->image) }}">
+
+               <p style="color:#666; font-size:20px; text-align:left;"> Art Name: <span style="color:purple; font-size:20px;">{{ $products->product_name }}</span></p>
+               <p style="color:#666; font-size:20px; text-align:left;"> Description: <span style="color:purple; font-size:20px;">{{$products->description}}</span></p>
+               <p style="color:#666; font-size:20px; text-align:left;"> Available Units: <span style="color:purple; font-size:20px;">{{$products->available_units}}</span></p>
+               <p style="color:#666; font-size:20px; text-align:left;"> Reserve Price: <span style="color:purple; font-size:20px;">Ksh. {{$products->reserve_price}}</span></p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
                <p style="color:#666; font-size:20px; text-align:left;" id="countdown_{{$products->product_id}}"></p>
 
@@ -199,7 +248,11 @@
       
    <p style="text-align:center; font-size:20px; color:purple;">Arge Auction Shop</p>
 
+<<<<<<< HEAD
 		<p style="text-align:center; font-size:20px;">Are you sure you want to remove this item from the shop ? </p>
+=======
+		<p style="text-align:center; font-size:20px;">Are you sure you want to remove this item from the cart ? </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
       <button><a href="{{url('delete_posted/' . $products->product_id) }}" style="text-decoration: none;" class="delete-btn">Remove from shop</a></button>
 
@@ -212,10 +265,17 @@
 
 
             </div>
+<<<<<<< HEAD
                </div>
                </div>
          @endforeach
       
+=======
+         @endforeach
+      @else
+         <p style="color:red; font-size:30px;">There are no arts available for sale</p>
+      @endif
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    </div>
 </body>
 </html>

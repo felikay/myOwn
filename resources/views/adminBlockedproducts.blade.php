@@ -12,6 +12,10 @@
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
    <link rel="stylesheet" href="{{asset('css/delete.css')}}">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    <style>
    #wrapper {
       border: 1px solid white;
@@ -104,11 +108,19 @@
    <p style="color:#666; font-size:20px;"> Number : <span style="color:purple; font-size:20px;">{{$i++}}</span> </p>
    <p style="color:#666; font-size:20px;"> Email : <span style="color:purple; font-size:20px;">{{$products->email}}</span> </p>
    <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
+<<<<<<< HEAD
    <p style="color:#666; font-size:20px;"> Price : <span style="color:purple; font-size:20px;">{{$products->reserve_price}}</span> </p>
 
   
    <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a>
 </div>
+=======
+   <p style="color:#666; font-size:20px;"> Price : <span style="color:purple; font-size:20px;">Ksh. {{$products->reserve_price}}</span> </p>
+
+  
+   <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Delete</a>
+
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
 <!-- Modal -->
 <div class="modal-wrapper" id="modal">
@@ -123,11 +135,17 @@
 			</a>
 		</div>
       
+<<<<<<< HEAD
       <img style="margin-left:30%;" height="200px;" width="200px;" src="{{ asset('uploads/files/' .$products->image) }}">
       
       <p style="text-align:center; font-size:15px; color:black;">Arge Auction Shop</p>
    
          <p style="text-align:center; font-size:15px;">Do you want to delete this blocked art piece ? </p>
+=======
+   <p style="text-align:center; font-size:20px; color:purple;">Arge Auction Shop</p>
+
+		<p style="text-align:center; font-size:20px;">Are You sure you want to delete </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
       <button><a href="{{url('delete_products/' . $products->id) }}" style="text-decoration: none; " class="delete-btn">Delete</a></button>
 

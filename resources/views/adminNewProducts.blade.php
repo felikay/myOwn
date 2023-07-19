@@ -111,11 +111,18 @@
    <p style="color:#666; font-size:20px;"> Name : <span style="color:purple; font-size:20px;">{{$products->name}}</span> </p>
    <p style="color:#666; font-size:20px;"> Description : <span style="color:purple; font-size:20px;">{{$products->description}}</span> </p>
    
+<<<<<<< HEAD
    
    
    <button>  <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; ">Disapprove</a> </button>
    <a href="{{route('product.status', ['user_id' => $products->id, 'status_code' => 'Accepted']) }}" style="text-decoration: none; " class="option-btn" >Accept</i></a>
    
+=======
+   <a href="{{route('product.status', ['user_id' => $products->id, 'status_code' => 'Accepted']) }}" style="text-decoration: none; background-color:#47d247;" class="option-btn" >Accept</i></a>
+   <a href="{{route('product.status', ['user_id' => $products->id, 'status_code' => 'Denied']) }}" style="text-decoration: none; background-color:#98777b;" class="delete-btn" >Block</i></a>
+   
+>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    </div>
    </div>
 

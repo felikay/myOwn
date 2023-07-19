@@ -73,7 +73,11 @@
 
      
       <div class="box">
+<<<<<<< HEAD
       <input type="text" id="descriptionInput" name="description" placeholder="enter the product description" style="width:82%;"  size="35%" value="{{old('description')}}">
+=======
+      <input type="text" name="description" placeholder="enter the product description" style="width:82%;"  size="35%" value="{{old('description')}}">
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
       </div>
       @if($errors->has('description'))
       <span class="text-danger">{{$errors->first('description')}}</span>
@@ -90,6 +94,7 @@
       
            
       <input type="hidden" name="email"  size="35%" value="{{ Auth::user()->email }}">
+<<<<<<< HEAD
 
 
       <a href="{{route('seller.home') }}" style="text-decoration: none; background-color:black;" class="option-btn">Go Back</a>
@@ -136,6 +141,12 @@
 
 
      
+=======
+      
+
+      <input type="submit" name="add_product" value="Add Product" class="option-btn">
+      <a href="{{route('seller.home') }}" style="text-decoration: none; background-color:black;" class="option-btn">Go Back</a>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
    </form>
 

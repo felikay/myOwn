@@ -99,12 +99,25 @@
    
 
    <button> <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; align-content:left; background-color:#721c08;">Decline</a></button>
+<<<<<<< HEAD
    <button class="delete-btn" style="text-decoration:none; align-content:left; background-color:#725108;">
    <a href="{{ route('checkout', ['productName' => $bid->posted->product_name, 'email' => Auth::user()->email, 'description' => $bid->posted->description, 'image' => $bid->posted->image, 'units' => $bid->requested_units, 'amount' => $bid->amount, 'sellerEmail' => $bid->posted->seller_email]) }}" style="text-decoration:none; color: white;">Proceed to checkout</a>
 </button>
 
 
 
+=======
+   <button> <a href="{{route('checkout')}}" class="delete-btn" style="text-decoration:none; align-content:left; background-color:#725108;">Proceed to checkout</a></button>
+
+   
+       </div>
+
+   
+</div>
+
+
+@endforeach
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
 <!-- Modal -->
 <div class="modal-wrapper" id="modal">
@@ -132,6 +145,7 @@
       <a href="#!" class="outside-trigger"></a>
    </div>
 
+<<<<<<< HEAD
 
    
    </div>
@@ -148,5 +162,7 @@
 
    @endforeach
 
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    </body>
 </html>

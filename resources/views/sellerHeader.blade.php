@@ -45,7 +45,7 @@
 /* Links inside the dropdown */
 .dropdown-content1 a {
   color: black;
-  padding: 12px 16px;
+  padding: 12px 25px;
   text-decoration: none;
   display: block;
   text-decoration: none;

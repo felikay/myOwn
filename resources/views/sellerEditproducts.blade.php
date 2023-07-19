@@ -50,7 +50,11 @@
 
      
       <div class="box">
+<<<<<<< HEAD
       <input type="text" name="description" placeholder="enter arts descriptioon"  size="35%" value="{{ $products->description }}">
+=======
+      <input type="number" name="description" placeholder="enter the product reserve price"  size="35%" value="{{ $products->description }}">
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
       </div>
       @if($errors->has('description'))
       <span class="text-danger">{{$errors->first('description')}}</span>
@@ -70,8 +74,13 @@
      
       <input type="hidden" name="email"  size="35%" value="{{ Auth::user()->email }}">
       
+<<<<<<< HEAD
 <br></br>
     
+=======
+
+      <input type="submit" name="add_product" value="Edit art" class="option-btn">
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
       <a href="{{route('seller.unapprovedproducts') }}" style="text-decoration: none; background-color:black;" class="option-btn">Never Mind</a>
       <input type="submit" name="add_product" value="Edit art" class="option-btn">
    </form>

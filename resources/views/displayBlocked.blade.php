@@ -80,6 +80,7 @@
 			</a>
 		</div>
 
+<<<<<<< HEAD
       <h2 style="text-align:center; font-size:20px;">Arge Auction Shop</h2>
       <div class="box" style="margin:10px; padding:0 0; background-color:#add8e6;">
    <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Name : <span>{{$blocked->name}}</span> </p>
@@ -89,6 +90,15 @@
   
 
 		<p style="text-align:center; font-size:20px;">Are You sure you want to unblock this account ? </p>
+=======
+      <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Name : <span>{{$blocked->name}}</span> </p>
+   <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Email : <span>{{$blocked->email}}</span> </p>
+   <p style=" padding-left:60px;text-align:left; font-size:20px; color:red;"> Type : <span>{{ $blocked->type }}</span> </p>
+      
+   <p style="text-align:center; font-size:20px; color:purple;">Arge Auction Shop</p>
+
+		<p style="text-align:center; font-size:20px;">Are You sure you want to Unblock this account?  </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
       <button><a href="{{route('status.update', ['user_id' => $blocked->id, 'status_code' => 1]) }}" style="text-decoration: none; " class="option-btn" >Unblock</a>
   </button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use App\Models\Orders;
 use Illuminate\Support\Facades\Validator;
 
@@ -137,3 +138,23 @@ public function checkoutpost(Request $request)
 
     
 }
+=======
+
+class CheckoutController extends Controller
+{
+    
+    public function checkout()
+    {
+   
+        return view('checkout');
+    }
+   
+
+    public function checkoutpost()
+    {
+   
+        return view('checkoutpost');
+    }
+   
+}
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f

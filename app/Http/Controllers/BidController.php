@@ -9,10 +9,13 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
 use Auth;
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 class BidController extends Controller
 {
 
@@ -76,6 +79,7 @@ class BidController extends Controller
             'bidder_email' => 'required',
             'product_id' => 'required',
             'requested_units' => 'required',
+<<<<<<< HEAD
         ]);
     
         $product = Posted::find($request->input('product_id'));
@@ -87,16 +91,34 @@ class BidController extends Controller
             return redirect()->back()->with('fail', 'You have already placed a bid for this art piece.');
         }
     
+=======
+
+        ]);
+
+
+
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
         Bid::create([
             'amount' => $request->input('amount'),
             'product_id' => $request->input('product_id'),
             'bidder_email' => $request->input('bidder_email'),
             'requested_units' => $request->input('requested_units'),
         ]);
+<<<<<<< HEAD
     
         return redirect()->back()->with('success', 'Your bid has been submitted.');
     }
 
+=======
+
+        
+
+        return redirect()->back()->with('success', 'Your bid has been submitted.');
+    }
+
+
+
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
    
 
 

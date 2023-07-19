@@ -23,6 +23,7 @@ class sellerController extends Controller
      
     }
 
+<<<<<<< HEAD
 
 
 
@@ -49,6 +50,41 @@ class sellerController extends Controller
 
 
     
+=======
+    public function sellerEndedAuction()
+    {
+
+      $userId = Auth::user()->email;
+        
+      $currentDateTime = now();
+
+      $products = Posted::where('end_time', '<=', Carbon::now()->timezone('Africa/Nairobi'))
+    ->where('seller_email', $userId)
+    ->whereHas('bids', function ($query) {
+        $query->where('notify', 'Cannot Buy');
+    })
+    ->get();
+      
+      
+      $productData = [];
+    
+        foreach ($products as $product) {
+            
+            $highestBid = Bid::where('product_id', $product->product_id)->max('amount');
+            $highestBidder = Bid::where('product_id', $product->product_id)->where('amount', $highestBid)->first();
+            $image = Posted::where('end_time', '<=', Carbon::now()->timezone('Africa/Nairobi'))->where('product_id', $product->product_id)->get();
+
+
+            $productData[] = [
+                'image' => $image,
+                'highestBid' => $highestBid,
+                'highestBidder' => $highestBidder,
+            ];
+        }
+    
+        return view('sellerEndedAuction', compact('productData','products'));
+    }
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
 
 
@@ -193,7 +229,11 @@ public function sellerEditproducts($id)
             $products->save();
             if($products)
             {
+<<<<<<< HEAD
               return redirect('/seller/unapprovedproducts')->with('success', 'The art piece information has been successfully updated');
+=======
+              return redirect()->back()->with('The art piece information has been successfully updated'); 
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
             }else{
               return redirect()->back()->with('error','Failed , try agin later');
             }

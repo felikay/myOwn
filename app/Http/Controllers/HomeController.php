@@ -8,7 +8,10 @@ use App\Models\Application;
 use App\Models\Products;
 use App\Models\Posted;
 use App\Models\Bid;
+<<<<<<< HEAD
 use App\Models\Orders;
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 use App\Models\Cart;
 use Carbon\Carbon;
 use Auth;
@@ -138,19 +141,26 @@ class HomeController extends Controller
     {
       $userId = Auth::user()->email;
       $list = Cart::where ('email',  $userId)->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->count();
+<<<<<<< HEAD
       $data = Orders::where('user_email', '$userId')->get();
       $won = Bid::where('bidder_email', $userId)
         ->where('notify', 'Can Buy')
         ->with(['posted'])
         ->get();
         return view('orders',compact('list','won','data'));
+=======
+        return view('orders',compact('list'));
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
     }
 
     public function shop()
     {
 
+<<<<<<< HEAD
       
 
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
       $data = Posted::where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->get();
       $userId = Auth::user()->email;
       $list = Cart::where ('email',  $userId)->where('end_time', '>', Carbon::now()->timezone('Africa/Nairobi'))->count();
@@ -172,9 +182,12 @@ class HomeController extends Controller
 
     return view('bidderWonbids', compact('won','list'));
 }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
     
 
 }

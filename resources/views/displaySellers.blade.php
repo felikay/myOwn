@@ -80,6 +80,7 @@
 			</a>
 		</div>
 
+<<<<<<< HEAD
       <h2 style="text-align:center; font-size:20px;">Arge Auction Shop</h2>
       <div class="box" style="margin:10px; padding:0 0; background-color:#add8e6;">
    <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Name : <span>{{$sellers->name}}</span> </p>
@@ -89,6 +90,15 @@
   
 
 		<p style="text-align:center; font-size:20px;">Are You sure you want to block this account ? </p>
+=======
+      <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Name : <span>{{$sellers->name}}</span> </p>
+   <p style="padding-left:60px; text-align:left; font-size:20px; color:red;"> Email : <span>{{$sellers->email}}</span> </p>
+   <p style=" padding-left:60px;text-align:left; font-size:20px; color:red;"> Type : <span>{{ $sellers->type }}</span> </p>
+      
+   <p style="text-align:center; font-size:20px; color:purple;">Arge Auction Shop</p>
+
+		<p style="text-align:center; font-size:20px;">Are You sure you want to delete ? </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 
       <button> <a href="{{route('status.update', ['user_id' => $sellers->id, 'status_code' => 0]) }}" style="text-decoration: none; " class="delete-btn">Block</a></button>
 
@@ -103,7 +113,11 @@
 @endforeach
 </div>
 @else
+<<<<<<< HEAD
 <p style="color:red; font-size:30px;"> <span></span> </p>
+=======
+<p style="color:red; font-size:30px;"> <span>There are no registered sellers accounts</span> </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
 @endif
 
 </section>

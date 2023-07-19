@@ -40,7 +40,11 @@
          <div class="share">
             
          </div>
+<<<<<<< HEAD
          <p> FE<a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a> | <a href="{{ route('applications') }}" style="text-decoration: none;">Apply as vendor</a>   </p>
+=======
+         <p> Arge <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a> | <a href="{{ route('applications') }}" style="text-decoration: none;">Apply as vendor</a>   </p>
+>>>>>>> 0bc6781e98c1ae8072f375423024b831edc5835f
       </div>
    </div>
 
