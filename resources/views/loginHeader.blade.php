@@ -38,10 +38,7 @@
    <div class="header-1">
       <div class="flex">
          <div class="share">
-            <a href="#" class="fab fa-facebook-f" style="text-decoration: none;"></a>
-            <a href="#" class="fab fa-twitter" style="text-decoration: none;"></a>
-            <a href="#" class="fab fa-instagram" style="text-decoration: none;"></a>
-            <a href="#" class="fab fa-linkedin" style="text-decoration: none;"></a>
+            
          </div>
          <p> FE <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a> | <a href="{{ route('applications') }}" style="text-decoration: none;">Apply as vendor</a>   </p>
       </div>

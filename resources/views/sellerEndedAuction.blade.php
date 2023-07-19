@@ -110,7 +110,6 @@
                <p style="color:#666; font-size:20px; text-align:left;">Highest Bid Amount:<span style="color:black; font-size:15px;"> @if ($products->highest_bid_amount === 'No Amount') {{ $products->highest_bid_amount }} @else Ksh. {{ $products->highest_bid_amount }} @endif</span></p>
                <!-- Add the rest of your code here for the bidding form and other elements -->
                <button type="submit" class="delete-btn" style="">Delete</button>
-               <button type="submit" class="option-btn" style="">Repost</button>
                <button type="submit" class="option-btn" style="background-color:#98777b;">Notify Bidder</button>
                
             </div>

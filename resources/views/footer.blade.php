@@ -36,6 +36,6 @@
 
    </div>
 
-   <p class="credit"> &copy; copyright  @  by <span>Arge Auction Shop</span> </p>
+   <p class="credit"> &copy; copyright  @  by <span>FE. Auction Shop</span> </p>
 
 </section>
