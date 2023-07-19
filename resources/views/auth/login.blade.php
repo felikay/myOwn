@@ -1,4 +1,4 @@
-@include('bidderHeader');
+@include('loginHeader');
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,17 @@
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+
+   <style>
+      .fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+   </style>
    
 
 </head>
@@ -77,10 +88,13 @@
       
       <p>You can login in with:</p>
      
-      <a href="{{ route('google.login') }}" class="btn" STYLE="background-color:#4285F4" size="100%" >Google</a>
 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR &nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="submit" name="submit" value="MetaMask" name="metamask"class="btn" STYLE="background-color:gray; ">
+
+     
+      <a href="{{ route('google.login') }}" class="btn" STYLE="background-color: #f0f8ff; border:solid 1px #4285F4; color:#4285F4; " size="100%"  ><i class="fab fa-google fa-2x"></i>&nbsp;&nbsp;</i>Google</a>
+
+     
+      
       
    </form>
 

@@ -8,12 +8,13 @@
 <link rel="stylesheet" href="{{asset('css/popup.css')}}">
 <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
 
+
 <style>
 
     /* Style The Dropdown Button */
 .dropbtn1 {
   background-color: white;
-  color:#666;
+  color:black;
   font-size: 20px;
   border: none;
   cursor: pointer;
@@ -32,13 +33,13 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
 .dropbtn1:hover{
-    color:purple;
+    color:black;
 }
 
 /* Links inside the dropdown */
@@ -51,7 +52,7 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content1 a:hover {background-color: #f1f1f1; text-decoration: none; color:purple;}
+.dropdown-content1 a:hover {background-color: #074d5e; text-decoration: none; color:#032027;}
 
 /* Show the dropdown menu on hover */
 .dropdown1:hover .dropdown-content1 {
@@ -63,6 +64,7 @@
   background-color: white;
 }
 </style>
+ 
  
 
 
@@ -91,33 +93,40 @@
 
    <div class="header-2">
       <div class="flex">
-         <a href="home" style="text-decoration: none;"class="logo">Arge.</a>
+         <a href="home" style="text-decoration: none;"class="logo">FE.</a>
 
          <nav class="navbar">
             <a style="text-decoration: none;" href="{{ route('sellerHome') }}">Home</a>
                         
             <div class="dropdown1">
-            <button class="dropbtn1">Products</button>
+            <button class="dropbtn1">Sales</button>
             <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{route('add.products')}}">Add Item</a>
-            <a style="text-decoration: none;" href="{{ route('seller.unapprovedproducts') }}">Unapproved</a>
-            <a style="text-decoration: none;" href="{{ route('seller.blockedproducts') }}">Blocked</a>
-            <a style="text-decoration: none;" href="{{ route('seller.approvedproducts') }}">Approved </a>
-            <a style="text-decoration: none;" href="{{ route('display.sellers') }}">Sold Items</a>
+            <a style="text-decoration: none;" href="{{route('add.products')}}">New Art piece</a>
+            <a style="text-decoration: none;" href="{{ route('seller.unapprovedproducts') }}">Waiting List</a>
+            <a style="text-decoration: none;" href="{{ route('seller.blockedproducts') }}">Rejected </a>
+                   
+           
+            </div>
+            </div>
+
+
+            <div class="dropdown1">
+            <button class="dropbtn1">My Arts</button>
+            <div class="dropdown-content1">
+            <a style="text-decoration: none;" href="{{route('seller.approvedproducts')}}">Approved Arts</a>
+            <a style="text-decoration: none;" href="{{route('seller.postedproducts')}}">On sale</a>
+            <a style="text-decoration: none;" href="{{route('seller.endedauction')}}">Expired Auctions</a>
+            <a style="text-decoration: none;" href="{{route('seller.notifybidder')}}">Pending Sales</a>
+            <a style="text-decoration: none;" href="{{ route('sold.products') }}">Sold Arts</a>
+            
            
             </div>
             </div>
 
                 
 
-            
-            <div class="dropdown1">
-            <button class="dropbtn1">Analysis</button>
-            <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{ route('display.bidders') }}">Graphs</a>
-                  
-            </div>
-            </div>                    
+           
+                            
            
 
            
@@ -144,14 +153,14 @@
 
                         @else
                             <li class="nav-item dropdown" >
-                                <a style="font-size: 20px; width:100px; decoration: none; color:purple" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a style="font-size: 20px; width:100px; decoration: none; color:black" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <br>
-                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple" href="{{ route('password.update') }}">Reset Password</a>
-                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple"  id="open" >Logout</a>
+                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:black" href="{{ route('password.update') }}">Reset Password</a>
+                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:black"  id="open" >Logout</a>
                                 
                                 
                                 </div>
@@ -169,7 +178,7 @@
 
       <div class="model">
                 
-        <p STYLE="color:purple; text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:20px;">ARGE AUCTION SHOP</p>
+        <p STYLE="color:black; text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:20px;">ARGE AUCTION SHOP</p>
                       
         <p STYLE=" text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:15px;">Do you want to logout?</p>
         
@@ -180,7 +189,7 @@
         <button STYLE="display:inline; float:left; " type="submit" href="{{ route('logout') }}" >Yes</button>
         </form>
        
-        <button STYLE="display:block; float:right; background-color:purple;  " id="close_up"  >No</button>
+        <button STYLE="display:block; float:right; background-color:#721c08;  " id="close_up"  >No</button>
         <div>
         <i class="fa fa-times" id="close"></i>
       </div> 

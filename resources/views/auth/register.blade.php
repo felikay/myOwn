@@ -1,4 +1,4 @@
-@include('bidderHeader');
+@include('loginHeader');
 
 <!DOCTYPE html>
 <html lang="en">

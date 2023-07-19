@@ -16,7 +16,7 @@
 </head>
 <body>
    
-@include('bidderHeader');
+@include('loginHeader');
 
 <div class="heading">
    <h3>Apply as a vendor</h3>
@@ -57,7 +57,7 @@
 
          <div class="inputBox">
             <span>your phone number :</span>
-            <input type="text" name="number"  placeholder="enter your number" value="{{old('number')}}">
+            <input type="number" name="number"  placeholder="enter your number" value="{{old('number')}}">
             @if($errors->has('number'))
             <span class="text-danger">{{$errors->first('number')}}</span>
             @endif
@@ -119,7 +119,7 @@
             @endif
          </div>
       </div>
-      <input type="button" value="Continue later?" class="option-btn" name="pause">
+     
       
 </fieldset>
 
@@ -153,7 +153,7 @@
          </div>
         </div> 
 
-      <input type="button" value="Continue later?" class="option-btn" name="pause">
+      
 
       </fieldset>
 
@@ -196,7 +196,7 @@
          </div>
          
       </div>
-      <input type="button" value="Continue later?" class="option-btn" name="pause">
+      <a href="{{ route('bidderHome') }}" class="option-btn" style="background-color:black; text-decoration:none;" name="pause">Back</a>
       <input type="submit" value="apply" style="margin-left: 70%; background-color:green; " class="white-btn" name="submit">
       
 </fieldset>
